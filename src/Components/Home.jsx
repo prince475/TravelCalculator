@@ -3,9 +3,9 @@ import React from 'react'
 
 function Home() {
   return (
-    <div className='min-h-screen py-40 bg-gradient-to-r from-blue-200 to-orange-200'>
+    <div className='min-h-screen py-20 body'>
       <div className='container mx-auto'>
-        <div className='flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white rounded mx-auto shadow-l overflow-hidden'>
+        <div className='flex flex-col lg:flex-row w-10/12 lg:w-8/12 bg-white/80 rounded mx-auto shadow-l overflow-hidden'>
           <div className='w-full lg:w-1/2 flex flex-col items-center justify-center p-12  '> 
           {/* add background image later --bg-[url(../Components/Images/visa.png)] bg-no-repeat bg-cover bg-center */}
             <h1 className='text-3xl mb-3 font-bold font-body'>Travel in Confidence</h1>

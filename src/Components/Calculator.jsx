@@ -327,7 +327,7 @@ export default function TI_Calculator() {
 
   return (
     <div className="text-gray-600 font-body">
-      <main className="px-16 py-6 bg-gradient-to-r from-blue-200 to-orange-200">
+      <main className="px-16 py-6 body">
         <header>
           <h1 className="text-black text-4xl font-semibold">
             Travel Calculator
@@ -343,240 +343,237 @@ export default function TI_Calculator() {
             {/* Cards go here */}
             <div className="card flex-1">
               <div className="flex gap-8  flex-wrap justify-around w-max-[623px]">
-              <div className="m-2">
-                <label className="age font-bold text-gray-500 text-small">
-                  Client age:
-                  <input
-                    className="block w-48 border-b border-gray-400 font-light"
-                    type="number"
-                    value={clientAge}
-                    onChange={(e) => setClientAge(e.target.value)}
-                  />
-                  {(selectedPlan === "Student" || clientType === "Student") &&
-                    (clientAge < 16 || clientAge > 45) && (
-                      <small style={{ color: "red" }}>
-                        Warning: Client age must be between 16 and 45 for
-                        student plan. Please purchase an individual plan if you
-                        are older than 45.
-                      </small>
-                    )}
-                </label>
-                <br />
-                <label className="age font-bold text-gray-500 text-small">
-                  Client type
-                  <select
-                    className="block w-44 border-b border-gray-400 font-light"
-                    value={clientType}
-                    onChange={(e) => setClientType(e.target.value)}
-                  >
-                    <option value="Individual"> Individual</option>
-                    <option value="Student"> Student</option>
-                    <option value="Group"> Group</option>
-                  </select>
-                </label>
-                <br />
-                <label className="age font-bold text-gray-500 text-small">
-                  Type of plan
-                  <select
-                    className="block w-44 border-b border-gray-400 font-light"
-                    value={selectedPlan}
-                    onChange={(e) => setSelectedPlan(e.target.value)}
-                  >
-                    {clientType === "Individual" ? (
-                      <>
-                        <option value="Gold"> Gold</option>
-                        <option value="Premium"> Premium</option>
-                        <option value="Schnegen"> Schnegen</option>
-                        <option value="Student"> Student</option>
-                      </>
-                    ) : clientType === "Student" ? (
-                      <option value="Student"> Student</option>
-                    ) : (
-                      <option value="Group"> Group</option>
-                    )}
-                  </select>
-                </label>
-                <br />
-                <label className="age font-bold text-gray-500 text-small">
-                  No. of travellers:
-                  <input
-                    className="block w-44 border-b border-gray-400 font-light"
-                    type="number"
-                    value={numberOfTravellers}
-                    onChange={(e) => setNumberOfTravellers(e.target.value)}
-                    // set min and max value for no of travellers in a group
-                    {...(clientType === "Group" && { min: "10", max: "500" })}
-                    // set value to 1 if client is student or individual
-                    {...((clientType === "Student" ||
-                      clientType === "Individual") && { disabled: true })}
-                  />
-                  {clientType === "Group" &&
-                    (numberOfTravellers < 10 || numberOfTravellers > 500) && (
-                      <>
-                        <br />
+                <div className="m-2">
+                  <label className="age font-bold text-gray-500 text-small">
+                    Client age:
+                    <input
+                      className="block w-48 border-b border-gray-400 font-light"
+                      type="number"
+                      value={clientAge}
+                      onChange={(e) => setClientAge(e.target.value)}
+                    />
+                    {(selectedPlan === "Student" || clientType === "Student") &&
+                      (clientAge < 16 || clientAge > 45) && (
                         <small style={{ color: "red" }}>
-                          Warning: Number of travellers must be between 10 and
-                          500
+                          Warning: Client age must be between 16 and 45 for
+                          student plan. Please purchase an individual plan if
+                          you are older than 45.
                         </small>
-                      </>
-                    )}
-                </label>
+                      )}
+                  </label>
+                  <br />
+                  <label className="age font-bold text-gray-500 text-small">
+                    Client type
+                    <select
+                      className="block w-44 border-b border-gray-400 font-light"
+                      value={clientType}
+                      onChange={(e) => setClientType(e.target.value)}
+                    >
+                      <option value="Individual"> Individual</option>
+                      <option value="Student"> Student</option>
+                      <option value="Group"> Group</option>
+                    </select>
+                  </label>
+                  <br />
+                  <label className="age font-bold text-gray-500 text-small">
+                    Type of plan
+                    <select
+                      className="block w-44 border-b border-gray-400 font-light"
+                      value={selectedPlan}
+                      onChange={(e) => setSelectedPlan(e.target.value)}
+                    >
+                      {clientType === "Individual" ? (
+                        <>
+                          <option value="Gold"> Gold</option>
+                          <option value="Premium"> Premium</option>
+                          <option value="Schnegen"> Schnegen</option>
+                          <option value="Student"> Student</option>
+                        </>
+                      ) : clientType === "Student" ? (
+                        <option value="Student"> Student</option>
+                      ) : (
+                        <option value="Group"> Group</option>
+                      )}
+                    </select>
+                  </label>
+                  <br />
+                  <label className="age font-bold text-gray-500 text-small">
+                    No. of travellers:
+                    <input
+                      className="block w-44 border-b border-gray-400 font-light"
+                      type="number"
+                      value={numberOfTravellers}
+                      onChange={(e) => setNumberOfTravellers(e.target.value)}
+                      // set min and max value for no of travellers in a group
+                      {...(clientType === "Group" && { min: "10", max: "500" })}
+                      // set value to 1 if client is student or individual
+                      {...((clientType === "Student" ||
+                        clientType === "Individual") && { disabled: true })}
+                    />
+                    {clientType === "Group" &&
+                      (numberOfTravellers < 10 || numberOfTravellers > 500) && (
+                        <>
+                          <br />
+                          <small style={{ color: "red" }}>
+                            Warning: Number of travellers must be between 10 and
+                            500
+                          </small>
+                        </>
+                      )}
+                  </label>
+                </div>
+                <div>
+                  <label className="age font-bold text-gray-500 text-small">
+                    Type of trip
+                    <select
+                      className="block w-44 border-b border-gray-400 font-light"
+                      value={selectedTripType}
+                      onChange={(e) => setSelectedTripType(e.target.value)}
+                    >
+                      {/* Only premium plan allows for single and inbound trip. The other plans (gold, student, schnegen, group) only allow for single trip. */}
 
-              </div>
-              <div>
-              <label className="age font-bold text-gray-500 text-small">
-                  Type of trip
-                  <select
-                    className="block w-44 border-b border-gray-400 font-light"
-                    value={selectedTripType}
-                    onChange={(e) => setSelectedTripType(e.target.value)}
-                  >
-                    {/* Only premium plan allows for single and inbound trip. The other plans (gold, student, schnegen, group) only allow for single trip. */}
-
-                    {selectedPlan === "Premium" ? (
-                      <>
+                      {selectedPlan === "Premium" ? (
+                        <>
+                          <option value="Single"> Single</option>
+                          <option value="Inbound"> Inbound</option>
+                        </>
+                      ) : (
                         <option value="Single"> Single</option>
-                        <option value="Inbound"> Inbound</option>
-                      </>
-                    ) : (
-                      <option value="Single"> Single</option>
-                    )}
-                  </select>
-                </label>
-                <br />
-                <label className="age font-bold text-gray-500 text-small">
-                  Destination
-                  <select
-                    className="block w-44 border-b border-gray-400 font-light"
-                    value={selectedDestination}
-                    onChange={(e) => setSelectedDestination(e.target.value)}
-                  >
-                    {/* This code conditionally renders destination options based on the client type. */}
-                    {clientType === "Student" || selectedPlan === "Student" ? (
-                      <>
+                      )}
+                    </select>
+                  </label>
+                  <br />
+                  <label className="age font-bold text-gray-500 text-small">
+                    Destination
+                    <select
+                      className="block w-44 border-b border-gray-400 font-light"
+                      value={selectedDestination}
+                      onChange={(e) => setSelectedDestination(e.target.value)}
+                    >
+                      {/* This code conditionally renders destination options based on the client type. */}
+                      {clientType === "Student" ||
+                      selectedPlan === "Student" ? (
+                        <>
+                          <option value="Including USA and Canada">
+                            Including USA and Canada
+                          </option>
+                          <option value="Excluding USA and Canada">
+                            Excluding USA and Canada
+                          </option>
+                        </>
+                      ) : (
                         <option value="Including USA and Canada">
                           Including USA and Canada
                         </option>
-                        <option value="Excluding USA and Canada">
-                          Excluding USA and Canada
+                      )}
+                    </select>
+                  </label>
+                  <br />
+                  <label className="age font-bold text-gray-500 text-small">
+                    Period of cover(days)
+                    {showIndividualPeriodOfCover && (
+                      <select
+                        className="block w-44 border-b border-gray-400 font-light"
+                        value={periodOfCover}
+                        onChange={(e) => setPeriodOfCover(e.target.value)}
+                      >
+                        <option value="1-7"> 1-7</option>
+                        <option value="8-10"> 8-10</option>
+                        <option value="11-15"> 11-15</option>
+                        <option value="16-21"> 16-21</option>
+                        <option value="22-31"> 22-31</option>
+                        <option value="32-62"> 32-62</option>
+                        <option value="63-93">63-93</option>
+                        <option value="94-185"> 94-185</option>
+                        <option value=" Annual Multi trip">
+                          {" "}
+                          Annual Multi trip
                         </option>
-                      </>
-                    ) : (
-                      <option value="Including USA and Canada">
-                        Including USA and Canada
-                      </option>
+                      </select>
                     )}
-                  </select>
-                </label>
-                <br />
-                <label className="age font-bold text-gray-500 text-small">
-                  Period of cover(days)
-                  {showIndividualPeriodOfCover && (
-                    <select
-                      className="block w-44 border-b border-gray-400 font-light"
-                      value={periodOfCover}
-                      onChange={(e) => setPeriodOfCover(e.target.value)}
-                    >
-                      <option value="1-7"> 1-7</option>
-                      <option value="8-10"> 8-10</option>
-                      <option value="11-15"> 11-15</option>
-                      <option value="16-21"> 16-21</option>
-                      <option value="22-31"> 22-31</option>
-                      <option value="32-62"> 32-62</option>
-                      <option value="63-93">63-93</option>
-                      <option value="94-185"> 94-185</option>
-                      <option value=" Annual Multi trip">
-                        {" "}
-                        Annual Multi trip
-                      </option>
-                    </select>
-                  )}
-                  {/* show if plan or client type is student */}
-                  {showStudentPeriodOfCover && (
-                    <select
-                      className="block w-44 border-b border-gray-400 font-light"
-                      value={periodOfCover}
-                      onChange={(e) => setPeriodOfCover(e.target.value)}
-                    >
-                      <option value="1-90"> 1-90</option>
-                      <option value="91-180"> 91-180</option>
-                      <option value="Annual"> Annual</option>
-                    </select>
-                  )}
-                  {/* show if client type is group */}
-                  {showGroup && (
-                    <div>
-                      <label className="age font-bold text-gray-500 text-small">
-                        <input
-                          className="block w-44 border-b border-gray-400 font-light"
-                          type="number"
-                          value={periodOfCover}
-                          {...(clientType === "Group" && {
-                            min: "3",
-                            max: "200",
-                          })}
-                          onChange={(e) => setPeriodOfCover(e.target.value)}
-                        />
+                    {/* show if plan or client type is student */}
+                    {showStudentPeriodOfCover && (
+                      <select
+                        className="block w-44 border-b border-gray-400 font-light"
+                        value={periodOfCover}
+                        onChange={(e) => setPeriodOfCover(e.target.value)}
+                      >
+                        <option value="1-90"> 1-90</option>
+                        <option value="91-180"> 91-180</option>
+                        <option value="Annual"> Annual</option>
+                      </select>
+                    )}
+                    {/* show if client type is group */}
+                    {showGroup && (
+                      <div>
+                        <label className="age font-bold text-gray-500 text-small">
+                          <input
+                            className="block w-44 border-b border-gray-400 font-light"
+                            type="number"
+                            value={periodOfCover}
+                            {...(clientType === "Group" && {
+                              min: "3",
+                              max: "200",
+                            })}
+                            onChange={(e) => setPeriodOfCover(e.target.value)}
+                          />
+                        </label>
+                        <br />
+                        {periodOfCover < 3 || periodOfCover > 200 ? (
+                          <small style={{ color: "red" }}>
+                            Period of cover must be between 3 and 200 days
+                          </small>
+                        ) : null}
+                      </div>
+                    )}
+                  </label>
+                  <br />
+                  <label className="age font-bold text-gray-500 text-small">
+                    War & Terrorism:
+                  </label>
+                  <div className="flex items-center">
+                    <div className="flex items-center">
+                      <label
+                        className="age font-bold text-gray-500 text-small"
+                        htmlFor="yes"
+                      >
+                        Yes
                       </label>
-                      <br />
-                      {periodOfCover < 3 || periodOfCover > 200 ? (
-                        <small style={{ color: "red" }}>
-                          Period of cover must be between 3 and 200 days
-                        </small>
-                      ) : null}
+                      <input
+                        className=" w-12 border-b border-gray-600"
+                        type="radio"
+                        id="yes"
+                        name="warTerrorism"
+                        value="yes"
+                        checked={warAndTerrorism === "yes"}
+                        onChange={(e) => setWarAndTerrorism(e.target.value)}
+                      />
                     </div>
-                  )}
-                </label>
-                <br />
-                <label className="age font-bold text-gray-500 text-small">
-                  War & Terrorism:
-                  </label>
-                  <div className="flex items-center">
-                  <div className="flex items-center">
-                  <label
-                    className="age font-bold text-gray-500 text-small"
-                    htmlFor="yes"
-                  >
-                    Yes
-                  </label>
-                  <input
-                    className=" w-12 border-b border-gray-600"
-                    type="radio"
-                    id="yes"
-                    name="warTerrorism"
-                    value="yes"
-                    checked={warAndTerrorism === "yes"}
-                    onChange={(e) => setWarAndTerrorism(e.target.value)}
-                  />
+                    <div className="flex items-center">
+                      <label
+                        className="age font-bold text-gray-500 text-small"
+                        htmlFor="no"
+                      >
+                        No
+                      </label>
+                      <input
+                        className="w-12 border-b border-gray-800"
+                        type="radio"
+                        id="no"
+                        name="warTerrorism"
+                        value="no"
+                        checked={warAndTerrorism === "no"}
+                        onChange={(e) => setWarAndTerrorism(e.target.value)}
+                      />
+                    </div>
                   </div>
-                 <div className="flex items-center">
-                 <label
-                    className="age font-bold text-gray-500 text-small"
-                    htmlFor="no"
-                  >
-                    No
-                  </label>
-                  <input
-                    className="w-12 border-b border-gray-800"
-                    type="radio"
-                    id="no"
-                    name="warTerrorism"
-                    value="no"
-                    checked={warAndTerrorism === "no"}
-                    onChange={(e) => setWarAndTerrorism(e.target.value)}
-                  />
-                 </div>
-                  </div>
-                  
-                 
-                
-
-                </div> 
-                </div> 
-                <div className="text-center">
-                <button className="btn " onClick={calculatePremium}>Calculate</button> 
                 </div>
-                          
+              </div>
+              <div className="text-center">
+                <button className="btn " onClick={calculatePremium}>
+                  Calculate
+                </button>
+              </div>
             </div>
 
             <div className="card w-min-[500px]">
@@ -598,7 +595,6 @@ export default function TI_Calculator() {
                   Basic Premium * Exchange Rate
                 </span>
                 KES {totalPremium * exchangeRate}
-
                 <span className="block text-gray-500 text-small font-light mt-12">
                   Current Exchange rate * KES 136
                 </span>
@@ -606,7 +602,6 @@ export default function TI_Calculator() {
               </div>
             </div>
           </div>
-            
         </div>
       </main>
     </div>
