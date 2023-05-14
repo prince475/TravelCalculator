@@ -5,7 +5,7 @@ function Policy() {
   return (
     <div className="antialised">
       <div className="flex w-full min-h-screen justify-evenly items-center">
-        <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-blue-700 w-full max-w-4xl p-8 sm:p-12 rounded-xl shadow-lg overflow-hidden">
+        <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-white w-full max-w-4xl p-8 sm:p-12 rounded-xl shadow-lg overflow-hidden">
           <div className="flex flex-col justify-between">
             <div>
               <h1 className="font-bold font-body text-2xl tracking-wide">
@@ -46,14 +46,10 @@ function Policy() {
                 sickness arising when the insured is outside of their home
                 country
               </p>
-             <div className="flex flex-col">
-              <div className="flex items-center justify-between">
-                <div>
-                <FaPhoneAlt className="pt-2"/>
+                <div className="flex">
+                <FaPhoneAlt className="pt-2"/><span>4444</span>
                 </div>
                
-              </div>
-             </div>
               
             </div>
           </div>
@@ -62,7 +58,7 @@ function Policy() {
             <div className="absolute z-0 w-40 h-40 bg-red-400 rounded-full -right-28 -top-28"></div>
             <div className="absolute z-0 w-40 h-40 bg-red-400 rounded-full -right+38 -bottom-16"></div>
 
-            <div className="relative z-10 bg-white rounded-xl shadow-lg p-8">
+            <div className="relative z-10 bg-white/90 rounded-xl shadow-lg p-8">
               {/* <h2 className="text-3xl mb-4 font-body">Register</h2> */}
               <h1 className="font-bold font-body text-2xl tracking-wide">
                 Pre-existing Exclusion

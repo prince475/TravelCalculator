@@ -327,7 +327,7 @@ export default function TI_Calculator() {
 
   return (
     <div className="text-gray-600 font-body">
-      <main className="px-16 py-6 body">
+      <main className="px-16 py-6 body bg-white/80">
         <header>
           <h1 className="text-black text-4xl font-semibold">
             Travel Calculator

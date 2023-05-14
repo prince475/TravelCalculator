@@ -11,9 +11,9 @@ function App() {
   return (
     <div className="App" >
     <Home/>
-    <hr className='border-sky-400 w-2/3 m-auto mb-4'/>
+    <hr className='border-sky-400 w-3/4 m-auto mb-4'/>
     <Policy/>
-    <hr />
+    <hr className='border-sky-400 w-3/4 m-auto mb-4 mt-2'/>
     <Calculator/>
     </div>
   );
