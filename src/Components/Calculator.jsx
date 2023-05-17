@@ -369,7 +369,7 @@ console.log('exchangeRate', exchangeRate)
                   <label className="age font-bold text-gray-500 text-small">
                     Client age:
                     <input
-                      className="block w-48 border-b border-gray-400 font-light"
+                      className="block w-64 border-b border-gray-400 font-light"
                       type="number"
                       value={clientAge}
                       onChange={(e) => setClientAge(e.target.value)}
@@ -377,7 +377,7 @@ console.log('exchangeRate', exchangeRate)
                     />
                     {(selectedPlan === "Student" || clientType === "Student") &&
                       (clientAge < 16 || clientAge > 45) && (
-                        <small className="w-1/4 p-4" style={{ color: "red" }}>
+                        <small className="flex text-xs w-64" style={{ color: "red" }}>
                           Warning: Client age must be between 16 and 45 for
                           student plan. Please purchase an individual plan if
                           you are older than 45.
@@ -388,7 +388,7 @@ console.log('exchangeRate', exchangeRate)
                   <label className="age font-bold text-gray-500 text-small">
                     Client type
                     <select
-                      className="block w-44 border-b border-gray-400 font-light"
+                      className="block w-64 border-b border-gray-400 font-light"
                       value={clientType}
                       onChange={(e) => setClientType(e.target.value)}
                     >
@@ -401,7 +401,7 @@ console.log('exchangeRate', exchangeRate)
                   <label className="age font-bold text-gray-500 text-small">
                     Type of plan
                     <select
-                      className="block w-44 border-b border-gray-400 font-light"
+                      className="block w-64 border-b border-gray-400 font-light"
                       value={selectedPlan}
                       onChange={(e) => setSelectedPlan(e.target.value)}
                     >
@@ -423,7 +423,7 @@ console.log('exchangeRate', exchangeRate)
                   <label className="age font-bold text-gray-500 text-small">
                     No. of travellers:
                     <input
-                      className="block w-44 border-b border-gray-400 font-light"
+                      className="block w-64 border-b border-gray-400 font-light"
                       type="number"
                       value={numberOfTravellers}
                       onChange={(e) => setNumberOfTravellers(e.target.value)}
@@ -449,7 +449,7 @@ console.log('exchangeRate', exchangeRate)
                   <label className="age font-bold text-gray-500 text-small">
                     Type of trip
                     <select
-                      className="block w-44 border-b border-gray-400 font-light"
+                      className="block w-64 border-b border-gray-400 font-light"
                       value={selectedTripType}
                       onChange={(e) => setSelectedTripType(e.target.value)}
                     >
@@ -469,7 +469,7 @@ console.log('exchangeRate', exchangeRate)
                   <label className="age font-bold text-gray-500 text-small">
                     Destination
                     <select
-                      className="block w-44 border-b border-gray-400 font-light"
+                      className="block w-64 border-b border-gray-400 font-light"
                       value={selectedDestination}
                       onChange={(e) => setSelectedDestination(e.target.value)}
                     >
@@ -496,7 +496,7 @@ console.log('exchangeRate', exchangeRate)
                     Period of cover(days)
                     {showIndividualPeriodOfCover && (
                       <select
-                        className="block w-44 border-b border-gray-400 font-light"
+                        className="block w-64 border-b border-gray-400 font-light"
                         value={periodOfCover}
                         onChange={(e) => setPeriodOfCover(e.target.value)}
                       >
@@ -517,7 +517,7 @@ console.log('exchangeRate', exchangeRate)
                     {/* show if plan or client type is student */}
                     {showStudentPeriodOfCover && (
                       <select
-                        className="block w-44 border-b border-gray-400 font-light"
+                        className="block w-64 border-b border-gray-400 font-light"
                         value={periodOfCover}
                         onChange={(e) => setPeriodOfCover(e.target.value)}
                       >
@@ -531,7 +531,7 @@ console.log('exchangeRate', exchangeRate)
                       <div>
                         <label className="age font-bold text-gray-500 text-small">
                           <input
-                            className="block w-44 border-b border-gray-400 font-light"
+                            className="block w-64 border-b border-gray-400 font-light"
                             type="number"
                             value={periodOfCover}
                             {...(clientType === "Group" && {

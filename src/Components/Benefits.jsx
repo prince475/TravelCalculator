@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
 
+import React, { useState } from 'react';
+import britam from "../Components/Images/logoBritam.png";
 
 function Benefits() {
   const [selectedPlan, setSelectedPlan] = useState('Gold');
@@ -97,6 +98,7 @@ function Benefits() {
 
 
   return (
+
     <div className='text-gray-600 font-body'>
         
       <main className='px-16 py-6 body bg-white/80'>
@@ -191,7 +193,6 @@ function Benefits() {
           </table>
         </div>
 
- 
       </main>
     </div>
   );
