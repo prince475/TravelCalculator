@@ -214,7 +214,7 @@ const premiums = {
 };
 
 export default function TI_Calculator() {
-  const [clientAge, setClientAge] = useState(0);
+  const [clientAge, setClientAge] = useState(1);
   const [clientType, setClientType] = useState("Individual");
   const [ageRange, setAgeRange] = useState("");
   const [selectedPlan, setSelectedPlan] = useState("Gold");
@@ -226,6 +226,7 @@ export default function TI_Calculator() {
   const [periodOfCover, setPeriodOfCover] = useState("1-7");
   const [warAndTerrorism, setWarAndTerrorism] = useState("no");
   const [totalPremium, setTotalPremium] = useState(0);
+  //const [exchangeRate, setExchangeRate] = useState(0)
 
   // Show this field if plan or client type is individual
   const showIndividualPeriodOfCover =
@@ -241,6 +242,28 @@ export default function TI_Calculator() {
 
   //current exchange rate
   const exchangeRate = 136.35;
+
+//fetch exchange rate function
+
+/** uncomment this code to fetch exchange rate from api
+ useEffect(()=> {
+  const fetchExchangeRate = async () => {
+    try {
+      const response = await fetch("https://api.apilayer.com/exchangerates_data/convert?to=KES&from=USD&amount=1", {
+        headers: { apikey: "" },
+      });
+      const responseData = await response.json();
+      console.log('responseData', responseData.result)
+      setExchangeRate(responseData.result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  fetchExchangeRate();
+}, [])
+console.log('exchangeRate', exchangeRate)
+*/
 
   //set agerange if client type is individual
   useEffect(() => {
@@ -269,7 +292,6 @@ export default function TI_Calculator() {
   //calculate Total Premium
   function calculatePremium(e) {
     e.preventDefault();
-    //calculate Individual Premium
     //calculate Group Premium
     if (clientType === "Group") {
       const ratePerDay = 5;
@@ -351,10 +373,11 @@ export default function TI_Calculator() {
                       type="number"
                       value={clientAge}
                       onChange={(e) => setClientAge(e.target.value)}
+                      required
                     />
                     {(selectedPlan === "Student" || clientType === "Student") &&
                       (clientAge < 16 || clientAge > 45) && (
-                        <small style={{ color: "red" }}>
+                        <small className="w-1/4 p-4" style={{ color: "red" }}>
                           Warning: Client age must be between 16 and 45 for
                           student plan. Please purchase an individual plan if
                           you are older than 45.
