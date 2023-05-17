@@ -214,7 +214,7 @@ const premiums = {
 };
 
 export default function TI_Calculator() {
-  const [clientAge, setClientAge] = useState(0);
+  const [clientAge, setClientAge] = useState(1);
   const [clientType, setClientType] = useState("Individual");
   const [ageRange, setAgeRange] = useState("");
   const [selectedPlan, setSelectedPlan] = useState("Gold");
@@ -269,7 +269,6 @@ export default function TI_Calculator() {
   //calculate Total Premium
   function calculatePremium(e) {
     e.preventDefault();
-    //calculate Individual Premium
     //calculate Group Premium
     if (clientType === "Group") {
       const ratePerDay = 5;
@@ -351,10 +350,11 @@ export default function TI_Calculator() {
                       type="number"
                       value={clientAge}
                       onChange={(e) => setClientAge(e.target.value)}
+                      required
                     />
                     {(selectedPlan === "Student" || clientType === "Student") &&
                       (clientAge < 16 || clientAge > 45) && (
-                        <small style={{ color: "red" }}>
+                        <small className="w-1/4 p-4" style={{ color: "red" }}>
                           Warning: Client age must be between 16 and 45 for
                           student plan. Please purchase an individual plan if
                           you are older than 45.
