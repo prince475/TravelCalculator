@@ -11,13 +11,13 @@ import Benefits from './Components/Benefits';
 function App() {
   return (
     <div className="App" >
-    <Home/>
+    <Benefits/>
     <hr className='border-sky-400 w-3/4 m-auto mb-4'/>
-    <Policy/>
-    <hr className='border-sky-400 w-3/4 m-auto mb-4 mt-2'/>
     <Calculator/>
     <hr className='border-sky-400 w-3/4 m-auto mb-4 mt-2'/>
-    <Benefits/>
+    <Policy/>
+    <hr className='border-sky-400 w-3/4 m-auto mb-4 mt-2'/>
+    <Home/>
     </div>
   );
 }
