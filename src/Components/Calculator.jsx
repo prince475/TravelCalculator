@@ -226,6 +226,7 @@ export default function TI_Calculator() {
   const [periodOfCover, setPeriodOfCover] = useState("1-7");
   const [warAndTerrorism, setWarAndTerrorism] = useState("no");
   const [totalPremium, setTotalPremium] = useState(0);
+  //const [exchangeRate, setExchangeRate] = useState(0)
 
   // Show this field if plan or client type is individual
   const showIndividualPeriodOfCover =
@@ -241,6 +242,28 @@ export default function TI_Calculator() {
 
   //current exchange rate
   const exchangeRate = 136.35;
+
+//fetch exchange rate function
+
+/** uncomment this code to fetch exchange rate from api
+ useEffect(()=> {
+  const fetchExchangeRate = async () => {
+    try {
+      const response = await fetch("https://api.apilayer.com/exchangerates_data/convert?to=KES&from=USD&amount=1", {
+        headers: { apikey: "" },
+      });
+      const responseData = await response.json();
+      console.log('responseData', responseData.result)
+      setExchangeRate(responseData.result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  fetchExchangeRate();
+}, [])
+console.log('exchangeRate', exchangeRate)
+*/
 
   //set agerange if client type is individual
   useEffect(() => {
