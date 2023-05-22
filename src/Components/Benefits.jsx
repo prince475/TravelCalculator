@@ -5,7 +5,7 @@ import britam from "../Components/Images/logoBritam.png";
 function Benefits() {
   const [selectedPlan, setSelectedPlan] = useState('Gold');
   const tabStyle = {
-    marginRight: '5px',
+    textAlign: 'center',
 
 }
   // Define the max sum insured values based on the selected plan
@@ -124,7 +124,7 @@ function Benefits() {
         {/* End of Dropdown menu */}
 
         {/* Tabs */}
-        <div className='flex'>
+        <div className='flex justify-around'>
             <div style={tabStyle}
               className={`py-2 px-4 text-sm font-semibold cursor-pointer ${
                 selectedPlan === 'Gold' ? 'bg-red-300' : 'bg-gray-100'

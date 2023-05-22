@@ -6,18 +6,28 @@ import Home from './Components/Home';
 import Calculator from './Components/Calculator';
 import Policy from './Components/Policy';
 import Benefits from './Components/Benefits';
+import BenefitsCard from './Components/BenefitsCard';
+import Navbar from './Components/NavbarCalc';
+import NavbarCalc from './Components/NavbarCalc';
+import Form from './Components/Form';
+import CalculatedBenefits from './Components/CalculatedBenefits';
 
 
 function App() {
   return (
     <div className="App" >
+    <NavbarCalc/>
+    <BenefitsCard/>
+    <hr className='border-sky-400 w-3/4 m-auto mb-4'/>
     <Benefits/>
     <hr className='border-sky-400 w-3/4 m-auto mb-4'/>
     <Calculator/>
     <hr className='border-sky-400 w-3/4 m-auto mb-4 mt-2'/>
+    <CalculatedBenefits/>
     <Policy/>
     <hr className='border-sky-400 w-3/4 m-auto mb-4 mt-2'/>
     <Home/>
+    {/* <Form/> */}
     </div>
   );
 }
