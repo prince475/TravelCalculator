@@ -605,17 +605,17 @@ console.log('exchangeRate', exchangeRate)
                   Insurance Cart
                 </h4>
                 <span className="block text-gray-500 text-small font-bold">
-                  Basic Premium
+                  Total Premium
                 </span>
                 ${totalPremium}
                 <br />
                 <span className="block text-gray-500 text-small font-bold">
                   War $ Terrorism Extension
                 </span>
-                $41
+                {warAndTerrorism === 'yes' && selectedPlan !== 'Gold' ? totalPremium * 0.25 : 0}
                 <br />
                 <span className="block text-gray-500 text-small font-bold">
-                  Basic Premium * Exchange Rate
+                  Total Premium * Exchange Rate
                 </span>
                 KES {totalPremium * exchangeRate}
                 <span className="block text-gray-500 text-small font-light mt-12">
