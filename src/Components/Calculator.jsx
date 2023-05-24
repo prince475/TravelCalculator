@@ -383,6 +383,12 @@ console.log('exchangeRate', exchangeRate)
                           you are older than 45.
                         </small>
                       )}
+                      {(clientType === "Individual") &&
+                      (clientAge > 80) && (
+                        <small className="flex text-xs w-64" style={{ color: "red" }}>
+                          Warning: Maximum age at expiry of insurance is 80 yrs
+                        </small>
+                      )}
                   </label>
                   <br />
                   <label className="age font-bold text-gray-500 text-small">
