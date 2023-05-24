@@ -622,6 +622,13 @@ console.log('exchangeRate', exchangeRate)
                   Current Exchange rate * KES 136
                 </span>
                 <br />
+
+                <div className="text-center">
+                <button className="rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider bg-secondary-300 text-white">
+                  Proceed to Benefits
+                </button>
+              </div>
+
               </div>
             </div>
           </div>

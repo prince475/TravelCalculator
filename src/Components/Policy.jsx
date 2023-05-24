@@ -4,11 +4,16 @@ import {FaPhoneAlt} from 'react-icons/fa'
 function Policy() {
   return (
     <div className="antialised">
-      <div className="flex w-full min-h-screen justify-evenly items-center">
-        <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-white w-full max-w-4xl p-8 sm:p-12 rounded-xl shadow-lg overflow-hidden">
+      <div className="flex w-full min-h-screen justify-evenly items-center pt-4" >
+        <div className="flex flex-col md:flex-row md:space-x-6 space-y-2 md:space-y-0 bg-white w-full max-w-4xl p-8 sm:p-12 rounded-xl shadow-lg overflow-hidden">
           <div className="flex flex-col justify-between">
+          <header>
+          <h1 className="text-secondary-300 text-4xl font-semibold">
+            Policies and Terms
+          </h1>
+        </header>
             <div>
-              <h1 className="font-bold font-body text-2xl tracking-wide">
+              <h1 className="font-bold font-body text-2xl tracking-wide pt-4">
                 Nature for Coverage
               </h1>
               <p className="pt- text-sm">
@@ -58,7 +63,7 @@ function Policy() {
             <div className="absolute z-0 w-40 h-40 bg-red-400 rounded-full -right-28 -top-28"></div>
             <div className="absolute z-0 w-40 h-40 bg-red-400 rounded-full -right+38 -bottom-16"></div>
 
-            <div className="relative z-10 bg-white/90 rounded-xl shadow-lg p-8">
+            <div className="relative z-10 bg-white/90 rounded-xl shadow-lg p-12">
               {/* <h2 className="text-3xl mb-4 font-body">Register</h2> */}
               <h1 className="font-bold font-body text-2xl tracking-wide">
                 Pre-existing Exclusion
