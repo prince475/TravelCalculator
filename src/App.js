@@ -1,21 +1,20 @@
 import logo from './logo.svg';
 // import './App.css';
 import './Styles/output.css'
-import ClientPage from './Components/ClientPage';
 import Home from './Components/Home';
 import Calculator from './Components/Calculator';
 import Policy from './Components/Policy';
 import Benefits from './Components/Benefits';
 import BenefitsCard from './Components/BenefitsCard';
-import Navbar from './Components/NavbarCalc';
 import NavbarCalc from './Components/NavbarCalc';
-import Form from './Components/Form';
 import CalculatedBenefits from './Components/CalculatedBenefits';
+import Random from './Components/Random';
 
 
 function App() {
   return (
     <div className="App" >
+      {/* <NextofKin/> */}
     <NavbarCalc/>
     <BenefitsCard/>
     <hr className='border-sky-400 w-3/4 m-auto mb-4'/>
@@ -26,8 +25,10 @@ function App() {
     <CalculatedBenefits/>
     <Policy/>
     <hr className='border-sky-400 w-3/4 m-auto mb-4 mt-2'/>
-    <Home/>
-    {/* <Form/> */}
+    <Home/> *
+
+    <Random/>
+
     </div>
   );
 }

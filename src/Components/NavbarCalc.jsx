@@ -23,6 +23,18 @@ function NavbarCalc() {
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <Typography
         as="li"
+        to='/benefitsCard'
+        variant="small"
+        color="blue-gray"
+        className="p-1 font-normal"
+      >
+        <a href="#" className="flex items-center">
+          Home
+        </a>
+      </Typography>
+      <Typography
+        as="li"
+        to='/benefits'
         variant="small"
         color="blue-gray"
         className="p-1 font-normal"
@@ -33,6 +45,7 @@ function NavbarCalc() {
       </Typography>
       <Typography
         as="li"
+        to='/travelCalculator'
         variant="small"
         color="blue-gray"
         className="p-1 font-normal"
@@ -43,6 +56,7 @@ function NavbarCalc() {
       </Typography>
       <Typography
         as="li"
+        to='/policies'
         variant="small"
         color="blue-gray"
         className="p-1 font-normal"
