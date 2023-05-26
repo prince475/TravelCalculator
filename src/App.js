@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import { useState } from 'react';
 // import './App.css';
 import './Styles/output.css'
 import Home from './Components/Home';
@@ -12,15 +13,17 @@ import Random from './Components/Random';
 
 
 function App() {
+  const [selectedPlan, setSelectedPlan] = useState('Gold');
+
   return (
     <div className="App" >
       {/* <NextofKin/> */}
     <NavbarCalc/>
     <BenefitsCard/>
     <hr className='border-sky-400 w-3/4 m-auto mb-4'/>
-    <Benefits/>
+    <Benefits selectedPlan={selectedPlan} setSelectedPlan={setSelectedPlan} />
     <hr className='border-sky-400 w-3/4 m-auto mb-4'/>
-    <Calculator/>
+    <Calculator selectedPlan={selectedPlan} setSelectedPlan={setSelectedPlan} />
     <hr className='border-sky-400 w-3/4 m-auto mb-4 mt-2'/>
     <CalculatedBenefits/>
     <Policy/>

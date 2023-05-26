@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import britam from "../Components/Images/logoBritam.png";
 
-function Benefits() {
-  const [selectedPlan, setSelectedPlan] = useState('Gold');
+function Benefits({selectedPlan, setSelectedPlan}) {
+  //const [selectedPlan, setSelectedPlan] = useState('Gold');
   const tabStyle = {
     textAlign: 'center',
 

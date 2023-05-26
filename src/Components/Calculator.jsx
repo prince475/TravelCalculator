@@ -213,11 +213,11 @@ const premiums = {
   },
 };
 
-export default function TI_Calculator() {
+export default function TI_Calculator({selectedPlan, setSelectedPlan}) {
   const [clientAge, setClientAge] = useState(1);
   const [clientType, setClientType] = useState("Individual");
   const [ageRange, setAgeRange] = useState("");
-  const [selectedPlan, setSelectedPlan] = useState("Gold");
+  //const [selectedPlan, setSelectedPlan] = useState("Gold");
   const [numberOfTravellers, setNumberOfTravellers] = useState(1);
   const [selectedTripType, setSelectedTripType] = useState("Single");
   const [selectedDestination, setSelectedDestination] = useState(
@@ -381,6 +381,12 @@ console.log('exchangeRate', exchangeRate)
                           Warning: Client age must be between 16 and 45 for
                           student plan. Please purchase an individual plan if
                           you are older than 45.
+                        </small>
+                      )}
+                      {(clientType === "Individual") &&
+                      (clientAge > 80) && (
+                        <small className="flex text-xs w-64" style={{ color: "red" }}>
+                          Warning: Maximum age at expiry of insurance is 80 yrs
                         </small>
                       )}
                   </label>
@@ -605,17 +611,17 @@ console.log('exchangeRate', exchangeRate)
                   Insurance Cart
                 </h4>
                 <span className="block text-gray-500 text-small font-bold">
-                  Basic Premium
+                  Total Premium
                 </span>
                 ${totalPremium}
                 <br />
                 <span className="block text-gray-500 text-small font-bold">
                   War $ Terrorism Extension
                 </span>
-                $41
+                {warAndTerrorism === 'yes' && selectedPlan !== 'Gold' ? totalPremium * 0.25 : 0}
                 <br />
                 <span className="block text-gray-500 text-small font-bold">
-                  Basic Premium * Exchange Rate
+                  Total Premium * Exchange Rate
                 </span>
                 KES {totalPremium * exchangeRate}
                 <span className="block text-gray-500 text-small font-light mt-12">
