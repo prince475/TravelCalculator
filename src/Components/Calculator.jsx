@@ -213,11 +213,11 @@ const premiums = {
   },
 };
 
-export default function TI_Calculator() {
+export default function TI_Calculator({selectedPlan, setSelectedPlan}) {
   const [clientAge, setClientAge] = useState(1);
   const [clientType, setClientType] = useState("Individual");
   const [ageRange, setAgeRange] = useState("");
-  const [selectedPlan, setSelectedPlan] = useState("Gold");
+  //const [selectedPlan, setSelectedPlan] = useState("Gold");
   const [numberOfTravellers, setNumberOfTravellers] = useState(1);
   const [selectedTripType, setSelectedTripType] = useState("Single");
   const [selectedDestination, setSelectedDestination] = useState(
