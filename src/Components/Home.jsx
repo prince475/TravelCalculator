@@ -1,5 +1,5 @@
 import React from "react";
-import NextofKin from "./NextofKin";
+import Random from './Random'
 import Upload from "./Upload";
 
 
@@ -9,13 +9,13 @@ function Home() {
     <div className="min-h-screen py-5 body">
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row  bg-white/80 rounded mx-auto shadow-l overflow-hidden">
-          <div className="w-full lg:w-1/2 flex flex-col items-center justify-center  ">
+          <div className="w-full lg:w-1/2 flex flex-col items-center justify-center p-4 ">
             {/* add background image later --bg-[url(../Components/Images/visa.png)] bg-no-repeat bg-cover bg-center */}
             <h1 className="text-2xl mb-3 font-bold font-body">
               Ensure You have filled the Calculator
             </h1>
             <form action="#">
-              <div className="grid grid-cols-2 gap-5">
+              <div className="grid grid-cols-2 gap-5 pt-2">
               <label className="firstName text-gray-500 text-small">
                   FirstName
                 <input
@@ -75,6 +75,13 @@ function Home() {
                 ></input>
                </label>
               </div>
+              <div className="mt-5 flex flex-col-3 gap-5">
+              <label className="nextOfKin text-gray-500 text-small">
+                Next of Kin
+
+              <Random/>
+              </label>
+              </div>
 
             </form>
           </div>
@@ -109,16 +116,7 @@ function Home() {
                 </select>
                 </label>
               </div>
-              <div className="mt-5">
-               <label className="nextofKin text-gray-500 text-small">
-                Next of Kin
-               <input
-                  type="text"
-                  placeholder="Add another form"
-                  className="border border-gray-400 py-1 px-2 w-full font-body rounded"
-                ></input>
-               </label>
-               </div>
+             
 
 
               <div className="mt-5">

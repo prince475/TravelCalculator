@@ -1,24 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const Table = () => {
   const [data, setData] = useState([]);
-  const [name, setName] = useState('');
-  const [age, setAge] = useState('');
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [relation, setRelation] = useState("");
 
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
 
-  const handleAgeChange = (e) => {
-    setAge(e.target.value);
+  const handlePhoneChange = (e) => {
+    setPhone(e.target.value);
+  };
+
+  const handleRelationChange = (e) => {
+    setRelation(e.target.value);
   };
 
   const handleAdd = () => {
-    if (name && age) {
-      const newData = [...data, { name, age }];
+    if (name && phone && relation) {
+      const newData = [...data, { name, phone, relation }];
       setData(newData);
-      setName('');
-      setAge('');
+      setName("");
+      setPhone("");
+      setRelation("");
     }
   };
 
@@ -29,13 +35,43 @@ const Table = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h2 className="text-xl font-bold mb-4">CRUD Table</h2>
+    <div className="">
+      <div className="mt-4 grid grid-cols-3 pr-1">
+        <input
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={handleNameChange}
+          className="border border-gray-400 py-1 px-2 w-full font-body rounded"
+        />
+        <input
+          type="number"
+          placeholder="Age"
+          value={phone}
+          onChange={handlePhoneChange}
+          className="border border-gray-400 py-1 px-2 w-full font-body rounded"
+        />
+        <input
+          type="tel"
+          placeholder="Relation"
+          value={relation}
+          onChange={handleRelationChange}
+          className="border border-gray-400 py-1 px-2 w-full font-body rounded"
+        />
+      </div>
+      <button
+          onClick={handleAdd}
+          className="bg-blue-500 hover:bg-blue-600 text-white font-bold px-4 py-2 rounded"
+        >
+          Add
+        </button>
+
       <table className="w-full border">
         <thead>
           <tr className="bg-gray-200">
             <th className="border px-4 py-2">Name</th>
-            <th className="border px-4 py-2">Age</th>
+            <th className="border px-4 py-2">Phone Number</th>
+            <th className="border px-4 py-2">Relation</th>
             <th className="border px-4 py-2">Actions</th>
           </tr>
         </thead>
@@ -43,7 +79,8 @@ const Table = () => {
           {data.map((item, index) => (
             <tr key={index} className="bg-white">
               <td className="border px-4 py-2">{item.name}</td>
-              <td className="border px-4 py-2">{item.age}</td>
+              <td className="border px-4 py-2">{item.phone}</td>
+              <td className="border px-4 py-2">{item.relation}</td>
               <td className="border px-4 py-2">
                 <button
                   className="bg-red-500 hover:bg-red-600 text-white font-bold px-2 py-1 rounded"
@@ -56,29 +93,6 @@ const Table = () => {
           ))}
         </tbody>
       </table>
-
-      <div className="mt-4">
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={handleNameChange}
-          className="border px-4 py-2 mr-2"
-        />
-        <input
-          type="number"
-          placeholder="Age"
-          value={age}
-          onChange={handleAgeChange}
-          className="border px-4 py-2 mr-2"
-        />
-        <button
-          onClick={handleAdd}
-          className="bg-blue-500 hover:bg-blue-600 text-white font-bold px-4 py-2 rounded"
-        >
-          Add
-        </button>
-      </div>
     </div>
   );
 };

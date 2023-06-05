@@ -6,7 +6,7 @@
 
 
 .card{
-    @apply bg-white rounded shadow-md p-10
+    @apply bg-white rounded shadow-md p-10 justify-around
 }
 
 .badge{
@@ -24,4 +24,11 @@ body{
 }
 .trow{
     @apply p-1.5 text-sm font-medium uppercase tracking-wider text-black bg-red-400 rounded-lg bg-opacity-50
+}
+.cardPart{
+    @apply bg-white rounded overflow-hidden shadow-md relative;
+    width: 22rem;
+}
+.hero{
+    background-image: url('../Components/Images/blacks.jpg');
 }

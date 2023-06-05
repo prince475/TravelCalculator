@@ -1,6 +1,4 @@
-import logo from './logo.svg';
 import { useState } from 'react';
-// import './App.css';
 import './Styles/output.css'
 import Home from './Components/Home';
 import Calculator from './Components/Calculator';
@@ -9,7 +7,7 @@ import Benefits from './Components/Benefits';
 import BenefitsCard from './Components/BenefitsCard';
 import NavbarCalc from './Components/NavbarCalc';
 import CalculatedBenefits from './Components/CalculatedBenefits';
-import Random from './Components/Random';
+import ImageSlide from './Components/ImageSlide';
 
 
 function App() {
@@ -17,10 +15,9 @@ function App() {
 
   return (
     <div className="App" >
-      {/* <NextofKin/> */}
-    <NavbarCalc/>
-    <BenefitsCard/>
-    <hr className='border-sky-400 w-3/4 m-auto mb-4'/>
+     <NavbarCalc/>
+     <ImageSlide/>
+    <hr className='border-sky-400 w-3/4 m-auto mb-4 pt'/>
     <Benefits selectedPlan={selectedPlan} setSelectedPlan={setSelectedPlan} />
     <hr className='border-sky-400 w-3/4 m-auto mb-4'/>
     <Calculator selectedPlan={selectedPlan} setSelectedPlan={setSelectedPlan} />
@@ -28,10 +25,7 @@ function App() {
     <CalculatedBenefits/>
     <Policy/>
     <hr className='border-sky-400 w-3/4 m-auto mb-4 mt-2'/>
-    <Home/> *
-
-    <Random/>
-
+    <Home/> 
     </div>
   );
 }
