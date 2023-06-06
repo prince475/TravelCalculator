@@ -4,7 +4,7 @@ import Upload from "./Upload";
 
 
 
-function Home() {
+function Group() {
   return (
     <div className="min-h-screen py-5 body">
       <div className="container mx-auto">
@@ -12,7 +12,7 @@ function Home() {
           <div className="w-full lg:w-1/2 flex flex-col items-center justify-center p-4 ">
             {/* add background image later --bg-[url(../Components/Images/visa.png)] bg-no-repeat bg-cover bg-center */}
             <h1 className="text-2xl mb-3 font-bold font-body">
-              Ensure You have filled the Calculator
+              Ensure You have filled the Calculator //Group Plan
             </h1>
             <form action="#">
               <div className="grid grid-cols-2 gap-5 pt-2">
@@ -49,7 +49,7 @@ function Home() {
                <input
                   type="tel"
                   placeholder="+254 "
-                  className="border border-gray-400 py-1 px-2 w-3/4 font-body rounded"
+                  className="border border-gray-400 py-1 px-2 w-full font-body rounded"
                 ></input>
                </label>
               </div>
@@ -75,13 +75,13 @@ function Home() {
                 ></input>
                </label>
               </div>
-              <div className="mt-5 flex flex-col-3 gap-5">
+              {/* <div className="mt-5 flex flex-col-3 gap-5">
               <label className="nextOfKin text-gray-500 text-small">
                 Next of Kin
 
               <Random/>
               </label>
-              </div>
+              </div> */}
 
             </form>
           </div>
@@ -149,15 +149,10 @@ function Home() {
               </div>
             </form>
           </div>
-
-          {/* Britam Logo badge
-      <div>
-        <img src={Britam} alt='logo'></img>
-      </div> */}
         </div>
       </div>
     </div>
   );
 }
 
-export default Home;
+export default Group;

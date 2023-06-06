@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const premiums = {
   Gold: {
@@ -630,9 +631,10 @@ console.log('exchangeRate', exchangeRate)
                 <br />
 
                 <div className="text-center">
+                <Link to='/benefits'>
                 <button className="rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider bg-secondary-300 text-white">
                   Proceed to Benefits
-                </button>
+                </button></Link>
               </div>
 
               </div>

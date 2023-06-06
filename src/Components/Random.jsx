@@ -72,7 +72,6 @@ const Table = () => {
             <th className="border px-4 py-2">Name</th>
             <th className="border px-4 py-2">Phone Number</th>
             <th className="border px-4 py-2">Relation</th>
-            <th className="border px-4 py-2">Actions</th>
           </tr>
         </thead>
         <tbody>
