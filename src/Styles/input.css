@@ -6,7 +6,7 @@
 
 
 .card{
-    @apply bg-white rounded shadow-md p-10 justify-around
+    @apply bg-white/50 rounded shadow-md p-10 justify-around
 }
 
 .badge{

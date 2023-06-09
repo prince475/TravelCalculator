@@ -15,7 +15,6 @@ function NavbarCalc() {
       <li><NavLink exact to='/benefits'>Benefits</NavLink></li>
       <li><NavLink exact to='/travelCalculator'>Travel Calculator</NavLink></li>
       <li><NavLink exact to='/policies'>Policies and Terms</NavLink></li>
-      <li><NavLink exact to='/kin'>Next of Kin</NavLink></li>
         </ul>
       </div>
       <img src={logo} className='w-20' alt='logo'></img>
@@ -26,7 +25,6 @@ function NavbarCalc() {
       <li><NavLink exact to='/benefits'>Benefits</NavLink></li>
       <li><NavLink exact to='/travelCalculator'>Travel Calculator</NavLink></li>
       <li><NavLink exact to='/policies'>Policies and Terms</NavLink></li>
-      <li><NavLink exact to='/kin'>Next of Kin</NavLink></li>
       </ul>
     </div>
     <div className="navbar-end">

@@ -1,0 +1,44 @@
+{
+  "clients": [
+    {
+      "firstname": "Maureen",
+      "lastname": "Murugi",
+      "national_id": "36704128",
+      "phone": "0725488466",
+      "email": "murugimaureen99@gmail.com",
+      "dob": "1999-08-03",
+      "purpose": "Education",
+      "mode": "Leisure",
+      "country": "USA",
+      "date": "2023-06-08",
+      "id": 1
+    },
+    {
+      "firstname": "Hellen",
+      "lastname": "Kokach",
+      "national_id": "12345678",
+      "phone": "0725488466",
+      "email": "murugimaureen99@gmail.com",
+      "dob": "1999-08-13",
+      "purpose": "Education",
+      "mode": "Leisure",
+      "country": "USA",
+      "date": "2023-06-15",
+      "id": 2
+    },
+    {
+      "firstname": "Hellen",
+      "lastname": "Kokach",
+      "national_id": "12345678",
+      "phone": "0725488466",
+      "email": "murugimaureen99@gmail.com",
+      "dob": "1999-08-13",
+      "purpose": "Education",
+      "mode": "Leisure",
+      "country": "USA",
+      "date": "2023-06-15",
+      "id": 3
+    }
+  ],
+  "uploads": []
+}

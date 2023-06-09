@@ -1,10 +1,38 @@
 import React from "react";
+import { useState } from "react";
 import Random from './Random'
 import Upload from "./Upload";
 
 
 
 function Home() {
+  
+  const [formData, setFormData] = useState({
+    firstname: '',
+    lastname: '',
+    national_id: '',
+    phone: '',
+    email: '',
+    dob: '',
+    purpose: '',
+    mode: '',
+    country: '',
+    date: '',
+  });
+  const [isChecked, setIsChecked] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+  };
+
+  function handleChange(event) {
+    setFormData({
+      ...formData,
+      [event.target.id]: event.target.value,
+    });
+  }
+
   return (
     <div className="min-h-screen py-5 body">
       <div className="container mx-auto">
@@ -20,6 +48,9 @@ function Home() {
                   FirstName
                 <input
                   type="text"
+                  id="firstname"
+                  value={formData.firstname}
+                  onChange={handleChange}
                   placeholder="John"
                   className="border border-gray-400 py-1 px-2 font-body rounded"
                 ></input>
@@ -28,6 +59,9 @@ function Home() {
                   Lastname
                 <input
                   type="text"
+                  id="lastname"
+                  value={formData.lastname}
+                  onChange={handleChange}
                   placeholder="Doe"
                   className="border border-gray-400 py-1 px-2 font-body rounded"
                 ></input>
@@ -38,6 +72,9 @@ function Home() {
                   National ID/Passport
                 <input
                   type="number"
+                  id="national_id"
+                  value={formData.national_id}
+                  onChange={handleChange}
                   placeholder="12345678"
                   className="border border-gray-400 py-1 px-2 w-full font-body rounded"
                 ></input>
@@ -48,8 +85,11 @@ function Home() {
                 Phone Number
                <input
                   type="tel"
-                  placeholder="+254 "
-                  className="border border-gray-400 py-1 px-2 w-3/4 font-body rounded"
+                  id="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="07/01 "
+                  className="border border-gray-400 py-1 px-2 w-full font-body rounded"
                 ></input>
                </label>
               </div>
@@ -58,6 +98,9 @@ function Home() {
                 Email
                <input
                   type="email address"
+                  id="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="Email"
                   className="border border-gray-400 py-1 px-2 w-full font-body rounded"
                 ></input>
@@ -68,8 +111,10 @@ function Home() {
                 Date of Birth
                <input
                   type="date"
+                  id="dob"
+                  value={formData.dob}
+                  onChange={handleChange}
                   placeholder="dd-mm-yy"
-                  value=''
                   min='1997-01-01' max='2023-05-25'
                   className="border border-gray-400 py-1 px-2 w-full font-body rounded"
                 ></input>
@@ -91,7 +136,10 @@ function Home() {
                 <label className="purpose text-gray-500 text-small">
                   Purpose of Travel
                 <select
-                className="block w-64 border-gray-400 font-light">
+                className="block w-64 border-gray-400 font-light"
+                id="purpose"
+                value={formData.purpose}
+                onChange={handleChange}>
                   <option value='Leisure'>Leisure</option>
                   <option value='Education'>Education</option>
                   <option value='Business'>Business</option>
@@ -101,7 +149,10 @@ function Home() {
                 <label className="lastName text-gray-500 text-small">
                   Mode of Travel
                   <select
-                className="block w-64 border-gray-400 font-light">
+                className="block w-64 border-gray-400 font-light"
+                id="mode"
+                value={formData.mode}
+                onClick={handleChange}>
                   <option value='Leisure'>Plane</option>
                 </select>
                 </label>
@@ -110,7 +161,10 @@ function Home() {
               <label className="purpose text-gray-500 text-small">
                   Country of Travel
                 <select
-                className="block w-64 border-gray-400 font-light">
+                className="block w-64 border-gray-400 font-light"
+                id="country"
+                value={formData.country}
+                onChange={handleChange}>
                   <option value='Kenya'>Kenya</option>
                   <option value='USA'>USA</option>
                 </select>
@@ -124,6 +178,9 @@ function Home() {
                 Date of Departure
                <input
                   type="date"
+                  id="date"
+                  value={formData.date}
+                  onChange={handleChange}
                   placeholder="Quotation Date"
                   className="border border-gray-400 py-1 px-2 w-full font-body rounded"
                 ></input>
@@ -135,29 +192,51 @@ function Home() {
               <div className="pt-6">
                 <input
                   type="checkbox"
+                  onChange={handleCheckboxChange}
                   className="border border-gray-400 font-body rounded"
                 ></input>
                 <span>
                   I have reviewed the terms for{" "}
                   <a
-                    href="#"
+                    href="/policies"
                     className="text-orange-500 font-semibold font-body"
                   >
                     Travel Insurance policies
                   </a>
                 </span>
               </div>
+
+              <div className="text-center pt-6">
+                <button 
+              className="btn"
+              onClick={handleSubmit}>
+                  Submit
+                </button>
+                {errorMessage && <p style={{ color: 'red'}}>{errorMessage}</p>}
+              </div>
             </form>
           </div>
-
-          {/* Britam Logo badge
-      <div>
-        <img src={Britam} alt='logo'></img>
-      </div> */}
         </div>
       </div>
     </div>
   );
+
+  function handleSubmit(e) {
+    if (!isChecked) {
+      setErrorMessage("Please review the terms before submitting.");
+      return;
+    }
+    e.preventDefault();
+    fetch('http://localhost:8000/clients', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    })
+
+    setErrorMessage('');
+  }
 }
 
 export default Home;

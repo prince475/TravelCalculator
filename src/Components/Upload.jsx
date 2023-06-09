@@ -4,9 +4,11 @@ function Upload() {
   const [imageFile, setImageFile] = useState(null);
   const [pdfFile, setPdfFile] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
+  const [file, setFile] = useState(null);
+
 
   const handleFileUpload = (event, fileType) => {
-    const file = event.target.files[0];
+   setFile(event.target.files[0]);
     if (file) {
       if (file.type.includes("image") && fileType === "image") {
         setImageFile(file);
@@ -36,13 +38,34 @@ function Upload() {
     }
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const response = await fetch('http://localhost:8000/uploads', {
+        method: 'POST',
+        body: formData,
+      });
+      const data  = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
+    <form onSubmit={handleSubmit}>
+      
     <div className="flex mt-5">
       <label className="text-gray-500 text-small">
         Upload ID File
         <input
           className="border-gray-400 font-body rounded"
           type="file"
+          id="id"
           accept=".pdf, image/*"
           onChange={(event) => handleFileUpload(event, "image")}
         />
@@ -50,7 +73,9 @@ function Upload() {
           <div>
             <p>Selected Image:</p>
             <img src={URL.createObjectURL(imageFile)} alt="Uploaded" />
-            <button onClick={() => handleRemoveFile("image")}>Remove</button>
+            <button
+            className="rounded-full py-2 px-3 text-xs font-bold cursor-pointer tracking-wider bg-secondary-500 text-white"
+            onClick={() => handleRemoveFile("image")}>Remove</button>
           </div>
         )}
       </label>
@@ -60,6 +85,7 @@ function Upload() {
         <input
           className="border-gray-400 font-body rounded"
           type="file"
+          id="kra"
           accept=".pdf, image/*"
           onChange={(event) => handleFileUpload(event, "pdf")}
         />
@@ -77,7 +103,9 @@ function Upload() {
         )}
       </label>
     </div>
+    </form>
   );
+
 }
 
 export default Upload;

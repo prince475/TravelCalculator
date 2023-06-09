@@ -9,9 +9,7 @@ function ImageSlide() {
   return (
     <>
       <div>
-        <div
-          className="hero min-h-screen"
-        >
+        <div className="hero min-h-screen">
           <div className="hero-overlay bg-opacity-60"></div>
           <div className="hero-content text-center text-neutral-content bg-sky-600 bg-opacity-50">
             <div className="max-w-md">
@@ -28,81 +26,70 @@ function ImageSlide() {
           </div>
         </div>
 
-        <hr className="border-sky-400 w-3/4 m-auto mb-4" />
+        <hr className="border-sky-400 w-3/4 m-auto mb-4 mt-3" />
 
-        {/* Cards go here */}
-
-      
-        {/* Cards end here */}
-
-        <div className="mt-8 flex flex-col-3 gap-5 justify-around">
-
-        <div className="cardPart">
-          <img
-            src={medical}
-            alt="food"
-            className="w-full h-32 sm:h-48 object-cover"
-          ></img>
-          <div className="m-4 justify-around">
-            <span className="font-bold">Medical Coverage</span>
-            <div className="flex">
+        <div className="flex flex-col w-full lg:flex-row">
+          <div className="grid flex-grow card  rounded-box place-items-center">
+            <div className="card w-96 bg-base-100 shadow-xl">
+              <figure>
+                <img
+                  src={medical}
+                  alt="Shoes"
+                  className="w-full h-32 sm:h-48"
+                />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">
+                  Medical
+                  <div className="badge badge-secondary">HEALTH</div>
+                </h2>
+                <div className="flex">
+                <FaTag className="w-7 h-7 pt-2 pl-2" />
+                <p>Emergency Medical Expenses and Evacuation</p>
+                </div>
+                <div className="flex">
                 <FaTag className="w-5 h-5 pt-2 pl-2" />
-                <span>Emergency Medical Expenses and Evacuation</span>
-              </div>
-              <div className="flex">
+                <p>Hospital Benefits</p>
+                </div>
+                <div className="flex">
                 <FaTag className="w-5 h-5 pt-2 pl-2" />
-                <span>Hospital Benefits</span>
+                <p>Emergency Dental Care</p>
+                </div>
               </div>
-              <div className="flex">
-                <FaTag className="w-5 h-5 pt-2 pl-2" />
-                <span>Emergency Dental Care</span>
-              </div>
+            </div>
           </div>
-        </div>
-        <div className="cardPart">
-          <img
-            src={medical}
-            alt="food"
-            className="w-full h-32 sm:h-48 object-cover"
-          ></img>
-          <div className="m-4 justify-around">
-            <span className="font-bold">Trip Disruption</span>
-            <div className="flex">
-                <FaTag className="w-5 h-5 pt-2 pl-2" />
-                <span>Travel Delay</span>
-              </div>
-              <div className="flex">
-                <FaTag className="w-5 h-5 pt-2 pl-2" />
-                <span>Trip cancellation and curtailment</span>
-              </div>
-              <div className="flex">
-                <FaTag className="w-5 h-5 pt-2 pl-2" />
-                <span>Loss of Passport</span>
-              </div>
+          <div className="divider lg:divider-horizontal divide-red-500">
+            AND
           </div>
-        </div>
-        <div className="cardPart">
-          <img
-            src={suitcase}
-            alt="food"
-            className="w-full h-32 sm:h-48 object-cover"
-          ></img>
-          <div className="m-4 justify-around">
-            <span className="font-bold">Travel Mishaps</span>
-            <div className="flex">
+          <div className="grid flex-grow card bg-base-300 rounded-box place-items-center">
+          <div className="card w-96 bg-base-100 shadow-xl">
+              <figure>
+                <img
+                  src={suitcase}
+                  alt="Shoes"
+                  className="w-full h-32 sm:h-48"
+                />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">
+                  Trip Mishaps
+                  <div className="badge badge-secondary">SAFETY</div>
+                </h2>
+                <div className="flex">
                 <FaTag className="w-5 h-5 pt-2 pl-2" />
-                <span>Personal Liability</span>
-              </div>
-              <div className="flex">
+                <p>Travel Delay</p>
+                </div>
+                <div className="flex">
                 <FaTag className="w-5 h-5 pt-2 pl-2" />
-                <span>Loss of checked Luggage</span>
-              </div>
-              <div className="flex">
+                <p>Cancellatiom and Curtailment</p>
+                </div>
+                <div className="flex">
                 <FaTag className="w-5 h-5 pt-2 pl-2" />
-                <span>Delayed Luggage</span>
+                <p>Loss of passport & checked luggage</p>
+                </div>
               </div>
+            </div>
           </div>
-        </div>
         </div>
       </div>
     </>
