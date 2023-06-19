@@ -10,6 +10,9 @@ import NavbarCalc from './Components/NavbarCalc';
 import Random from './Components/Random';
 import ImageSlide from './Components/ImageSlide';
 import Group from './Components/Group';
+import CalcBenefits from './Components/CalculatedBenefits';
+import Payment from './Components/Payment';
+import LoginModal from './Components/LoginModal';
 
 
 function App() {
@@ -21,11 +24,13 @@ function App() {
     <Routes>
       <Route path='/' element={<ImageSlide/>}></Route>
       <Route path='/benefits' element={<Benefits selectedPlan={selectedPlan} setSelectedPlan={setSelectedPlan} />}></Route>
+      <Route path='/calcbenefits' element={<CalcBenefits/>}></Route>
       <Route path='/travelCalculator' element={<Calculator selectedPlan={selectedPlan} setSelectedPlan={setSelectedPlan} />}></Route>
       <Route path='/policies' element={<Policy/>}></Route>
       <Route path='/form' element={<Home/>}></Route>
       <Route path='/group' element={<Group/>}></Route>
-      <Route path='/kin' element={<Random/>}></Route>
+      <Route path='/payments' element={<Payment/>}></Route>
+      <Route path='/login' element={<LoginModal/>}></Route>
     </Routes>
     </div>
   );

@@ -2,11 +2,11 @@ import React from "react";
 import { useState } from "react";
 import Random from './Random'
 import Upload from "./Upload";
-
+import { useNavigate } from "react-router-dom";
 
 
 function Home() {
-  
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
@@ -25,6 +25,12 @@ function Home() {
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);
   };
+
+  const [number, setNumber] = useState('')
+  const handleNumberChange = (e) => {
+    const value = e.target.value;
+    setNumber(value);
+  }
 
   function handleChange(event) {
     setFormData({
@@ -49,6 +55,7 @@ function Home() {
                 <input
                   type="text"
                   id="firstname"
+                  required
                   value={formData.firstname}
                   onChange={handleChange}
                   placeholder="John"
@@ -60,6 +67,7 @@ function Home() {
                 <input
                   type="text"
                   id="lastname"
+                  required
                   value={formData.lastname}
                   onChange={handleChange}
                   placeholder="Doe"
@@ -73,6 +81,7 @@ function Home() {
                 <input
                   type="number"
                   id="national_id"
+                  required
                   value={formData.national_id}
                   onChange={handleChange}
                   placeholder="12345678"
@@ -86,6 +95,7 @@ function Home() {
                <input
                   type="tel"
                   id="phone"
+                  required
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="07/01 "
@@ -99,6 +109,7 @@ function Home() {
                <input
                   type="email address"
                   id="email"
+                  required
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Email"
@@ -112,6 +123,7 @@ function Home() {
                <input
                   type="date"
                   id="dob"
+                  required
                   value={formData.dob}
                   onChange={handleChange}
                   placeholder="dd-mm-yy"
@@ -138,6 +150,7 @@ function Home() {
                 <select
                 className="block w-64 border-gray-400 font-light"
                 id="purpose"
+                required
                 value={formData.purpose}
                 onChange={handleChange}>
                   <option value='Leisure'>Leisure</option>
@@ -151,6 +164,7 @@ function Home() {
                   <select
                 className="block w-64 border-gray-400 font-light"
                 id="mode"
+                required
                 value={formData.mode}
                 onClick={handleChange}>
                   <option value='Leisure'>Plane</option>
@@ -163,6 +177,7 @@ function Home() {
                 <select
                 className="block w-64 border-gray-400 font-light"
                 id="country"
+                required
                 value={formData.country}
                 onChange={handleChange}>
                   <option value='Kenya'>Kenya</option>
@@ -179,6 +194,7 @@ function Home() {
                <input
                   type="date"
                   id="date"
+                  required
                   value={formData.date}
                   onChange={handleChange}
                   placeholder="Quotation Date"
@@ -206,14 +222,20 @@ function Home() {
                 </span>
               </div>
 
-              <div className="text-center pt-6">
+              <div className="flex text-center pt-6 gap-10">
                 <button 
               className="btn"
               onClick={handleSubmit}>
-                  Submit
+                  Proceed To Payment
                 </button>
-                {errorMessage && <p style={{ color: 'red'}}>{errorMessage}</p>}
+
+                <button 
+              className="btn"
+              onClick={handleSubmit}>
+                  Get a Quote
+                </button>
               </div>
+              {errorMessage && <p style={{ color: 'red'}}>{errorMessage}</p>}
             </form>
           </div>
         </div>
@@ -236,6 +258,7 @@ function Home() {
     })
 
     setErrorMessage('');
+    navigate('/payments')
   }
 }
 

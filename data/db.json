@@ -38,7 +38,67 @@
       "country": "USA",
       "date": "2023-06-15",
       "id": 3
+    },
+    {
+      "firstname": "Hellen",
+      "lastname": "Kokach",
+      "national_id": "12345678",
+      "phone": "0725488466",
+      "email": "murugimaureen99@gmail.com",
+      "dob": "1999-08-03",
+      "purpose": "Education",
+      "mode": "Leisure",
+      "country": "USA",
+      "date": "2023-06-20",
+      "id": 4
     }
   ],
-  "uploads": []
+  "uploads": [],
+  "registrations": [
+    {
+      "firstName": "Maureen",
+      "lastName": "Murugi",
+      "email": "murugimaureen99@gmail.com",
+      "branch": "Upperhill",
+      "password": "wuehh",
+      "confirmPassword": "wuehh",
+      "id": 1
+    },
+    {
+      "firstName": "Maureen",
+      "lastName": "Murugi",
+      "email": "murugimaureen99@gmail.com",
+      "branch": "Upperhill",
+      "password": "murugi",
+      "confirmPassword": "murugi",
+      "id": 2
+    },
+    {
+      "firstName": "Maureen",
+      "lastName": "Murugi",
+      "email": "murugimaureen99@gmail.com",
+      "branch": "upperhill",
+      "password": "murugi",
+      "confirmPassword": "murugi",
+      "id": 3
+    },
+    {
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "email": "janedoe@britam.com",
+      "branch": "upperhill",
+      "password": "janedoe",
+      "confirmPassword": "janedoe",
+      "id": 4
+    },
+    {
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "email": "janedoe@britam.com",
+      "branch": "upperhill",
+      "password": "janedoe",
+      "confirmPassword": "janedoe",
+      "id": 5
+    }
+  ]
 }

@@ -358,7 +358,7 @@ console.log('exchangeRate', exchangeRate)
         </header>
 
         <div>
-          <h4 className="font-bold mt-12 pb-2 border-b border-gray-200">
+          <h4 className="font-bold mt-2 pb-2 border-b border-sky-500">
             Kindly Fill in all the details
           </h4>
 

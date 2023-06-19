@@ -4,6 +4,7 @@ import { FaTag } from "react-icons/fa";
 import medical from "../Components/Images/medical.png";
 import trip from "../Components/Images/tripdisruption.jpg";
 import suitcase from "../Components/Images/suitcase.png";
+import Benefits from './Benefits'
 
 function ImageSlide() {
   return (
@@ -11,7 +12,7 @@ function ImageSlide() {
       <div>
         <div className="hero min-h-screen">
           <div className="hero-overlay bg-opacity-60"></div>
-          <div className="hero-content text-center text-neutral-content bg-sky-600 bg-opacity-50">
+          <div className=" text-center text-neutral-content bg-sky-600 bg-opacity-50">
             <div className="max-w-md">
               <h2 className="mb-5 text-3xl font-bold">
                 Travel with Confidence: Your Ultimate Travel Insurance Partner!
@@ -81,7 +82,7 @@ function ImageSlide() {
                 </div>
                 <div className="flex">
                 <FaTag className="w-5 h-5 pt-2 pl-2" />
-                <p>Cancellatiom and Curtailment</p>
+                <p>Cancellation and Curtailment</p>
                 </div>
                 <div className="flex">
                 <FaTag className="w-5 h-5 pt-2 pl-2" />

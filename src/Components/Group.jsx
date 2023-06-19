@@ -1,10 +1,19 @@
 import React from "react";
-import Random from './Random'
 import Upload from "./Upload";
+import { useNavigate } from "react-router-dom";
+import Modal from 'react-modal'
 
-
+Modal.setAppElement('#root')
 
 function Group() {
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    navigate('/payments');
+
+  };
+
+  
   return (
     <div className="min-h-screen py-5 body">
       <div className="container mx-auto">
@@ -146,6 +155,13 @@ function Group() {
                     Travel Insurance policies
                   </a>
                 </span>
+              </div>
+              <div className="text-center pt-6">
+                <button 
+              className="btn"
+              onClick={handleButtonClick}>
+                  Proceed to Payment
+                </button>
               </div>
             </form>
           </div>
