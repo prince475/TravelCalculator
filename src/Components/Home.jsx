@@ -18,6 +18,8 @@ function Home() {
     mode: '',
     country: '',
     date: '',
+    idFile: '',
+    kraPin: '',
   });
   const [isChecked, setIsChecked] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -185,9 +187,6 @@ function Home() {
                 </select>
                 </label>
               </div>
-             
-
-
               <div className="mt-5">
                <label className="quotationDate text-gray-500 text-small">
                 Date of Departure
@@ -204,6 +203,7 @@ function Home() {
               </div>
             
               <Upload/>
+              {/* Upload Features */}
 
               <div className="pt-6">
                 <input
@@ -221,7 +221,8 @@ function Home() {
                   </a>
                 </span>
               </div>
-
+              
+              {/* Buttons */}
               <div className="flex text-center pt-6 gap-10">
                 <button 
               className="btn"
@@ -231,7 +232,7 @@ function Home() {
 
                 <button 
               className="btn"
-              onClick={handleSubmit}>
+              onClick={handleQuote}>
                   Get a Quote
                 </button>
               </div>
@@ -259,6 +260,10 @@ function Home() {
 
     setErrorMessage('');
     navigate('/payments')
+  }
+  function handleQuote(e) {
+    handleSubmit(e);
+    navigate('/details')
   }
 }
 

@@ -13,6 +13,9 @@ import Group from './Components/Group';
 import CalcBenefits from './Components/CalculatedBenefits';
 import Payment from './Components/Payment';
 import LoginModal from './Components/LoginModal';
+import Upload from './Components/Upload';
+import DetailsDisplay from './Components/DetailsDisplay';
+import Quote from './Components/Quote';
 
 
 function App() {
@@ -31,6 +34,9 @@ function App() {
       <Route path='/group' element={<Group/>}></Route>
       <Route path='/payments' element={<Payment/>}></Route>
       <Route path='/login' element={<LoginModal/>}></Route>
+      <Route path='/upload' element={<Upload/>}></Route>
+      <Route path='/details' element={<DetailsDisplay/>}></Route>
+      <Route path='/detailsFetch' element={<Quote/>}></Route>
     </Routes>
     </div>
   );

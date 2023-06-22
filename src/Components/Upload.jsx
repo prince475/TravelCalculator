@@ -37,6 +37,7 @@ function Upload() {
     const reader = new FileReader();
     reader.onload = () => {
       const base64Data = reader.result;
+      console.log('Base64 Data:', base64Data);
       callback(base64Data);
     };
     reader.readAsDataURL(file);
@@ -65,7 +66,7 @@ function Upload() {
     }
 
     try {
-      const response = await fetch("http://localhost:8000/uploads", {
+      const response = await fetch("http://localhost:8000/clients", {
         method: "POST",
         body: formData,
       });
@@ -84,7 +85,7 @@ function Upload() {
           <input
             className="border-gray-400 font-body rounded"
             type="file"
-            id="id"
+            id="idFile"
             accept=".pdf, image/*"
             onChange={(event) => handleFileUpload(event, "image")}
           />
@@ -107,7 +108,7 @@ function Upload() {
           <input
             className="border-gray-400 font-body rounded"
             type="file"
-            id="kra"
+            id="kraPin"
             accept=".pdf, image/*"
             onChange={(event) => handleFileUpload(event, "pdf")}
           />

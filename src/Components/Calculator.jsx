@@ -242,7 +242,29 @@ export default function TI_Calculator({selectedPlan, setSelectedPlan}) {
   const showGroup = clientType === "Group";
 
   //current exchange rate
-  const exchangeRate = 136.35;
+  const exchangeRate = 140;
+
+//fetchData
+  const [calcData, setCalcData] = useState({
+    client_age: '',
+    client_type: '',
+    type_of_plan: '',
+    no_of_travellers: '',
+    type_of_trip: '',
+    destination: '',
+    period_of_days: '',
+    cover_of_days: '',
+    war: '',
+    total_premium: '',
+    total_premium_exchange: '',
+  })
+
+  function handleCalcChange(e) {
+    setCalcData({
+      ...calcData,
+      [e.target.id]: e.target.value,
+    });
+  }
 
 //fetch exchange rate function
 
@@ -301,6 +323,7 @@ console.log('exchangeRate', exchangeRate)
         totalPremium *= 1.25; // add 25% premium for War & Terrorism
       }
       setTotalPremium(totalPremium);
+      handleSubmit();
     }
     //calculate Student Premium
     else if (clientType === "Student" || selectedPlan === "Student") {
@@ -372,8 +395,11 @@ console.log('exchangeRate', exchangeRate)
                     <input
                       className="block w-64 border-b border-gray-400 font-light"
                       type="number"
-                      value={clientAge}
-                      onChange={(e) => setClientAge(e.target.value)}
+                      value={clientAge + calcData.client_age}
+                      onChange={(e) => {
+                        setClientAge(e.target.value);
+                        handleCalcChange();
+                      }}
                       required
                     />
                     {(selectedPlan === "Student" || clientType === "Student") &&
@@ -396,8 +422,11 @@ console.log('exchangeRate', exchangeRate)
                     Client type
                     <select
                       className="block w-64 border-b border-gray-400 font-light"
-                      value={clientType}
-                      onChange={(e) => setClientType(e.target.value)}
+                      value={clientType + calcData.client_type}
+                      onChange={(e) => {
+                        setClientType(e.target.value);
+                        handleCalcChange();
+                      }}
                     >
                       <option value="Individual"> Individual</option>
                       <option value="Student"> Student</option>
@@ -409,8 +438,11 @@ console.log('exchangeRate', exchangeRate)
                     Type of plan
                     <select
                       className="block w-64 border-b border-gray-400 font-light"
-                      value={selectedPlan}
-                      onChange={(e) => setSelectedPlan(e.target.value)}
+                      value={selectedPlan + calcData.type_of_plan}
+                      onChange={(e) => {
+                        setSelectedPlan(e.target.value);
+                        handleCalcChange();
+                      }}
                     >
                       {clientType === "Individual" ? (
                         <>
@@ -432,8 +464,11 @@ console.log('exchangeRate', exchangeRate)
                     <input
                       className="block w-64 border-b border-gray-400 font-light"
                       type="number"
-                      value={numberOfTravellers}
-                      onChange={(e) => setNumberOfTravellers(e.target.value)}
+                      value={numberOfTravellers + calcData.no_of_travellers}
+                      onChange={(e) => {
+                        setNumberOfTravellers(e.target.value);
+                        handleCalcChange();
+                      }}
                       // set min and max value for no of travellers in a group
                       {...(clientType === "Group" && { min: "10", max: "500" })}
                       // set value to 1 if client is student or individual
@@ -457,8 +492,11 @@ console.log('exchangeRate', exchangeRate)
                     Type of trip
                     <select
                       className="block w-64 border-b border-gray-400 font-light"
-                      value={selectedTripType}
-                      onChange={(e) => setSelectedTripType(e.target.value)}
+                      value={selectedTripType + calcData.type_of_trip}
+                      onChange={(e) => {
+                        setSelectedTripType(e.target.value);
+                        handleCalcChange();
+                      }}
                     >
                       {/* Only premium plan allows for single and inbound trip. The other plans (gold, student, schnegen, group) only allow for single trip. */}
 
@@ -477,8 +515,11 @@ console.log('exchangeRate', exchangeRate)
                     Destination
                     <select
                       className="block w-64 border-b border-gray-400 font-light"
-                      value={selectedDestination}
-                      onChange={(e) => setSelectedDestination(e.target.value)}
+                      value={selectedDestination + calcData.destination}
+                      onChange={(e) => {
+                        setSelectedDestination(e.target.value);
+                        handleCalcChange();
+                      }}
                     >
                       {/* This code conditionally renders destination options based on the client type. */}
                       {clientType === "Student" ||
@@ -504,8 +545,11 @@ console.log('exchangeRate', exchangeRate)
                     {showIndividualPeriodOfCover && (
                       <select
                         className="block w-64 border-b border-gray-400 font-light"
-                        value={periodOfCover}
-                        onChange={(e) => setPeriodOfCover(e.target.value)}
+                        value={periodOfCover + calcData.period_of_days}
+                        onChange={(e) => {
+                          setPeriodOfCover(e.target.value);
+                          handleCalcChange();
+                        }}
                       >
                         <option value="1-7"> 1-7</option>
                         <option value="8-10"> 8-10</option>
@@ -525,8 +569,11 @@ console.log('exchangeRate', exchangeRate)
                     {showStudentPeriodOfCover && (
                       <select
                         className="block w-64 border-b border-gray-400 font-light"
-                        value={periodOfCover}
-                        onChange={(e) => setPeriodOfCover(e.target.value)}
+                        value={periodOfCover + calcData.period_of_days}
+                        onChange={(e) => {
+                          setPeriodOfCover(e.target.value);
+                          handleCalcChange();
+                        }}
                       >
                         <option value="1-90"> 1-90</option>
                         <option value="91-180"> 91-180</option>
@@ -540,12 +587,15 @@ console.log('exchangeRate', exchangeRate)
                           <input
                             className="block w-64 border-b border-gray-400 font-light"
                             type="number"
-                            value={periodOfCover}
+                            value={periodOfCover + calcData.period_of_days}
                             {...(clientType === "Group" && {
                               min: "3",
                               max: "200",
                             })}
-                            onChange={(e) => setPeriodOfCover(e.target.value)}
+                            onChange={(e) => {
+                              setPeriodOfCover(e.target.value);
+                              handleCalcChange();
+                            }}
                           />
                         </label>
                         <br />
@@ -576,7 +626,10 @@ console.log('exchangeRate', exchangeRate)
                         name="warTerrorism"
                         value="yes"
                         checked={warAndTerrorism === "yes"}
-                        onChange={(e) => setWarAndTerrorism(e.target.value)}
+                        onChange={(e) => {
+                          setWarAndTerrorism(e.target.value);
+                          handleCalcChange();
+                        }}
                       />
                     </div>
                     <div className="flex items-center">
@@ -593,7 +646,10 @@ console.log('exchangeRate', exchangeRate)
                         name="warTerrorism"
                         value="no"
                         checked={warAndTerrorism === "no"}
-                        onChange={(e) => setWarAndTerrorism(e.target.value)}
+                        onChange={(e) => {
+                          setWarAndTerrorism(e.target.value);
+                          handleCalcChange();
+                        }}
                       />
                     </div>
                   </div>
@@ -626,7 +682,7 @@ console.log('exchangeRate', exchangeRate)
                 </span>
                 KES {totalPremium * exchangeRate}
                 <span className="block text-gray-500 text-small font-light mt-12">
-                  Current Exchange rate * KES 136
+                  Current Exchange rate * KES 140
                 </span>
                 <br />
 
@@ -644,4 +700,14 @@ console.log('exchangeRate', exchangeRate)
       </main>
     </div>
   );
+
+  function handleSubmit(e) {
+    fetch('http://localhost:8000/calculator', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(calcData)
+    })
+  }
 }

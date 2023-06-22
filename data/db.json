@@ -51,6 +51,198 @@
       "country": "USA",
       "date": "2023-06-20",
       "id": 4
+    },
+    {
+      "firstname": "Hellen",
+      "lastname": "Murugi",
+      "national_id": "1234567",
+      "phone": "",
+      "email": "murugimaureen99@gmail.com",
+      "dob": "1999-09-02",
+      "purpose": "Business",
+      "mode": "",
+      "country": "USA",
+      "date": "2023-06-27",
+      "idFile": "",
+      "kraPin": "",
+      "id": 5
+    },
+    {
+      "firstname": "Hellen",
+      "lastname": "Kokach",
+      "national_id": "12345678",
+      "phone": "0725488466",
+      "email": "murugimaureen99@gmail.com",
+      "dob": "1999-09-12",
+      "purpose": "Education",
+      "mode": "",
+      "country": "USA",
+      "date": "2023-06-27",
+      "idFile": "string",
+      "kraPin": "string",
+      "id": 6
+    },
+    {
+      "firstname": "Hellen",
+      "lastname": "Kokach",
+      "national_id": "12345678",
+      "phone": "0725488466",
+      "email": "murugimaureen99@gmail.com",
+      "dob": "1998-09-12",
+      "purpose": "Education",
+      "mode": "Leisure",
+      "country": "USA",
+      "date": "2023-06-27",
+      "idFile": "",
+      "kraPin": "",
+      "id": 7
+    },
+    {
+      "firstname": "Hellen",
+      "lastname": "Kokach",
+      "national_id": "12345678",
+      "phone": "0725488466",
+      "email": "murugimaureen99@gmail.com",
+      "dob": "1999-05-25",
+      "purpose": "Education",
+      "mode": "",
+      "country": "",
+      "date": "2023-06-21",
+      "idFile": "",
+      "kraPin": "",
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "id": 10
+    },
+    {
+      "id": 11
+    },
+    {
+      "firstname": "",
+      "lastname": "",
+      "national_id": "",
+      "phone": "",
+      "email": "",
+      "dob": "",
+      "purpose": "",
+      "mode": "",
+      "country": "",
+      "date": "",
+      "idFile": "",
+      "kraPin": "",
+      "id": 12
+    },
+    {
+      "firstname": "",
+      "lastname": "",
+      "national_id": "",
+      "phone": "",
+      "email": "",
+      "dob": "",
+      "purpose": "",
+      "mode": "",
+      "country": "",
+      "date": "",
+      "idFile": "",
+      "kraPin": "",
+      "id": 13
+    },
+    {
+      "firstname": "",
+      "lastname": "",
+      "national_id": "",
+      "phone": "",
+      "email": "",
+      "dob": "",
+      "purpose": "",
+      "mode": "",
+      "country": "",
+      "date": "",
+      "idFile": "",
+      "kraPin": "",
+      "id": 14
+    },
+    {
+      "firstname": "Manu",
+      "lastname": "Abuya",
+      "national_id": "23456789",
+      "phone": "0722877032",
+      "email": "joe@profitablehospitality.co.ke",
+      "dob": "1999-04-09",
+      "purpose": "Personal",
+      "mode": "Leisure",
+      "country": "USA",
+      "date": "2023-06-28",
+      "idFile": "",
+      "kraPin": "",
+      "id": 15
+    },
+    {
+      "id": 16
+    },
+    {
+      "firstname": "Joe",
+      "lastname": "Mwangi",
+      "national_id": "98765432",
+      "phone": "0729403131",
+      "email": "joe@profitablehospitality.co.ke",
+      "dob": "1998-02-12",
+      "purpose": "Business",
+      "mode": "Leisure",
+      "country": "USA",
+      "date": "2023-06-28",
+      "idFile": "",
+      "kraPin": "",
+      "id": 17
+    },
+    {
+      "firstname": "Amos",
+      "lastname": "Pride",
+      "national_id": "23456789",
+      "phone": "0729403131",
+      "email": "joe@profitablehospitality.co.ke",
+      "dob": "1998-09-06",
+      "purpose": "Business",
+      "mode": "Leisure",
+      "country": "USA",
+      "date": "2023-06-28",
+      "idFile": "",
+      "kraPin": "",
+      "id": 18
+    },
+    {
+      "firstname": "Peter",
+      "lastname": "Muiruri",
+      "national_id": "12345678",
+      "phone": "0722877032",
+      "email": "murugimaureen99@gmail.com",
+      "dob": "1999-08-03",
+      "purpose": "Personal",
+      "mode": "",
+      "country": "USA",
+      "date": "2023-06-28",
+      "idFile": "",
+      "kraPin": "",
+      "id": 19
+    },
+    {
+      "firstname": "Beryl",
+      "lastname": "Apondi",
+      "national_id": "12345678",
+      "phone": "0729403131",
+      "email": "joe@profitablehospitality.co.ke",
+      "dob": "1999-09-08",
+      "purpose": "Personal",
+      "mode": "",
+      "country": "USA",
+      "date": "2023-06-28",
+      "idFile": "",
+      "kraPin": "",
+      "id": 20
     }
   ],
   "uploads": [],
@@ -99,6 +291,23 @@
       "password": "janedoe",
       "confirmPassword": "janedoe",
       "id": 5
+    },
+    {
+      "firstName": "Peter",
+      "lastName": "Muiruri",
+      "email": "joe@profitablehospitality.co.ke",
+      "branch": "upperhill",
+      "password": "upperhill",
+      "confirmPassword": "upperhill",
+      "id": 6
+    }
+  ],
+  "calculator": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
     }
   ]
 }
