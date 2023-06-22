@@ -95,7 +95,7 @@ function RegisterModal({ openLoginPopup }) {
 
   return (
     <div className="fixed inset-0 bg-sky-500 bg-opacity-30 backdrop-blur-sm flex justify-center items-center ">
-      <div className="bg-white/50 rounded card">
+      <div className="bg-white/80 rounded card">
         <h4 className="font-bold mt-2 pb-2 border-b border-gray-200 text-2xl text-red-600">
           Hello Consultant! Register Here
         </h4>

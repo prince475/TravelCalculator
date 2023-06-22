@@ -1,12 +1,15 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function LoginModal({ closeLoginPopup }) {
+function LoginModal() {
   const [loginData, setLoginData] = useState({
     email: "",
     branch: "",
     password: "",
   });
   const [errorMessage, setErrorMessage] = useState("");
+
+  const navigate = useNavigate();
 
   const handleChangeLogin = (e) => {
     setLoginData({
@@ -31,7 +34,8 @@ function LoginModal({ closeLoginPopup }) {
         if (matchingUser) {
           console.log("Login successful");
           setErrorMessage("");
-          closeLoginPopup('/');
+          // closeLoginPopup('/');
+          navigate('/')
           // Open the homepage or perform any necessary actions
         } else {
           setErrorMessage("Invalid credentials. Please try again!");

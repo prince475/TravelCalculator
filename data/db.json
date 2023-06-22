@@ -300,6 +300,15 @@
       "password": "upperhill",
       "confirmPassword": "upperhill",
       "id": 6
+    },
+    {
+      "firstName": "Maureen",
+      "lastName": "Murugi",
+      "email": "murugimaureen99@gmail.com",
+      "branch": "upperhill",
+      "password": "mojambili",
+      "confirmPassword": "mojambili",
+      "id": 7
     }
   ],
   "calculator": [

@@ -3673,6 +3673,10 @@ html{
   top: -7rem;
 }
 
+.bottom-1{
+  bottom: 0.25rem;
+}
+
 .z-0{
   z-index: 0;
 }
@@ -4101,6 +4105,14 @@ html{
   background-color: rgb(255 255 255 / 0.9);
 }
 
+.bg-white\/30{
+  background-color: rgb(255 255 255 / 0.3);
+}
+
+.bg-white\/60{
+  background-color: rgb(255 255 255 / 0.6);
+}
+
 .bg-opacity-30{
   --tw-bg-opacity: 0.3;
 }
@@ -4227,6 +4239,18 @@ html{
   padding-top: 1.5rem;
 }
 
+.pl-4{
+  padding-left: 1rem;
+}
+
+.pt-10{
+  padding-top: 2.5rem;
+}
+
+.pr-3{
+  padding-right: 0.75rem;
+}
+
 .text-left{
   text-align: left;
 }
@@ -4283,6 +4307,10 @@ html{
 
 .font-semibold{
   font-weight: 600;
+}
+
+.font-normal{
+  font-weight: 400;
 }
 
 .uppercase{
