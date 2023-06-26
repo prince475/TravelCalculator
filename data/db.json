@@ -309,6 +309,42 @@
       "password": "mojambili",
       "confirmPassword": "mojambili",
       "id": 7
+    },
+    {
+      "firstName": "Peter",
+      "lastName": "Muiruri",
+      "email": "murugimaureen99@gmail.com",
+      "branch": "upperhill",
+      "password": "petermn",
+      "confirmPassword": "petermn",
+      "id": 8
+    },
+    {
+      "firstName": "Maureen",
+      "lastName": "Murugi",
+      "email": "murugimaureen99@gmail.com",
+      "branch": "upperhill",
+      "password": "maureen",
+      "confirmPassword": "maureen",
+      "id": 9
+    },
+    {
+      "firstName": "Maureen",
+      "lastName": "Murugi",
+      "email": "murugimaureen99@gmail.com",
+      "branch": "upperhill",
+      "password": "maureen",
+      "confirmPassword": "maureen",
+      "id": 10
+    },
+    {
+      "firstName": "Onesmas",
+      "lastName": "Apoko",
+      "email": "onesmasapok@britam.com",
+      "branch": "Upperhill",
+      "password": "abcdef",
+      "confirmPassword": "abcdef",
+      "id": 11
     }
   ],
   "calculator": [

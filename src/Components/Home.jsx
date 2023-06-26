@@ -41,6 +41,10 @@ function Home() {
   }
 
   const handleSubmit = (e) => {
+    if (!isChecked) {
+      setErrorMessage("Please review the terms before submitting.");
+      return;
+    }
     e.preventDefault();
 
     let myHeaders = new Headers();
@@ -56,29 +60,32 @@ function Home() {
       redirect: "follow",
     };
 
-    fetch("http://10.10.4.62:9005/TravelCalculator/ProxyService/TravelPipelineProxyService", requestOptions)
-    .then(response => {
-      response.text();
-      setFormData({
-        firstname: "",
-        lastname: "",
-        national_id: "",
-        phone: "",
-        email: "",
-        dob: "",
-        purpose: "",
-        mode: "",
-        country: "",
-        date: "",
-        idFile: "",
-        kraPin: "",
-      });
-    })
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+    fetch(
+      "http://10.10.4.62:9005/TravelCalculator/ProxyService/TravelPipelineProxyService",
+      requestOptions
+    )
+      .then((response) => {
+        response.text();
+        setFormData({
+          firstname: "",
+          lastname: "",
+          national_id: "",
+          phone: "",
+          email: "",
+          dob: "",
+          purpose: "",
+          mode: "",
+          country: "",
+          date: "",
+          idFile: "",
+          kraPin: "",
+        });
+      })
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
 
-    setErrorMessage('');
-    navigate('/payments')
+    setErrorMessage("");
+    navigate("/payments");
   };
 
   return (
@@ -300,6 +307,11 @@ function Home() {
   //   navigate('/payments')
   // }
   function handleQuote(e) {
+    if (!isChecked) {
+      setErrorMessage("Please review the terms before submitting.");
+      return;
+    }
+    setErrorMessage("");
     handleSubmit(e);
     navigate("/details");
   }

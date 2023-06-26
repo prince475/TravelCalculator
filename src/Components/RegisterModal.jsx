@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import validator from "validator";
 
-function RegisterModal({ openLoginPopup }) {
+function RegisterModal({ openLoginPopup, closeRegistrationPopup }) {
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState('');
@@ -37,7 +37,9 @@ function RegisterModal({ openLoginPopup }) {
       .then((data) => {
 
         setSuccessMessage('Registration successful');
+        closeRegistrationPopup();
         openLoginPopup();
+        
       })
       .catch((error) => {
         console.error('Registration error:', error);
