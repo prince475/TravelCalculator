@@ -1,5 +1,6 @@
 import React from "react";
 import {FaPhoneAlt} from 'react-icons/fa'
+import { FaMailBulk } from "react-icons/fa";
  
 function Policy() {
   return (
@@ -52,7 +53,10 @@ function Policy() {
                 country
               </p>
                 <div className="flex">
-                <FaPhoneAlt className="pt-2"/><span>4444</span>
+                <FaPhoneAlt className="pt-2"/><p className="text-sm">24HR - +44(0)2079027405</p>
+                </div>
+                <div className="flex">
+                <FaMailBulk className="pt-2"/><p className="text-sm">24HR - assistance@specialty-group.com</p>
                 </div>
                
               

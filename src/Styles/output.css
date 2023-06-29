@@ -4334,6 +4334,18 @@ body{
   background-image: url('../Components/Images/blacks.jpg');
 }
 
+.darkBG{
+  background-color: rgba(3, 105, 161, 0.6);
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: absolute;
+}
+
 @media (min-width: 1024px){
   .lg\:divider-horizontal{
     flex-direction: column;

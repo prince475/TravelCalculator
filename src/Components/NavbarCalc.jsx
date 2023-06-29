@@ -117,6 +117,10 @@ function NavbarCalc() {
         <RegisterModal openLoginPopup={openLoginPopup}/>
       )}
 
+      {showRegistrationPopup && (
+        <RegisterModal closeRegistrationPopup={closeRegistrationPopup}/>
+      )}
+
       {showLoginPopup && (
         <LoginModal closeLoginPopup={closeLoginPopup}/>
       )}

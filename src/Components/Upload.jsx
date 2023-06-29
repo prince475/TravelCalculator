@@ -129,9 +129,9 @@ function Upload() {
           )}
         </label>
       </div>
-      <button 
+      {/* <button 
       type="submit"
-      className="rounded-full py-2 px-3 text-xs bg-secondary-400 cursor-pointer tracking-wider">Submit</button>
+      className="rounded-full py-2 px-3 text-xs bg-secondary-400 cursor-pointer tracking-wider">Submit</button> */}
     </form>
   );
 }

@@ -1,38 +1,46 @@
 import React, { useState } from "react";
 // import { Mpesa } from "mpesa-api";
+import CompleteModal from "./CompleteModal";
 
 function Payment() {
-  // const mpesa = new Mpesa(credentials, environment);
+  const [showCompleteModal, setShowCompleteModal] = useState(false);
 
-  // const credentials = {
-  //   clientKey: 'CONSUMER_KEY_HERE',
-  //   clientSecret: 'CONSUMER_SECRET_HERE',
-  //   initiatorPassword: 'INITIATOR_PASSWORD',
-  //   securityCredenial: 'SECURITY_CREDENTIALS',
-  //   certificatePath: 'keys/certificates.cert',
-  // };
+  const openCompleteModal = () => {
+    setShowCompleteModal(true)
+  }
+  const closeCompleteModal = () => {
+    setShowCompleteModal(false)
+  }
 
-  // const environment = 'sandbox';
+let myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+myHeaders.append("Authorization", "Basic Q2VsbHVsYW50OldlbGNvbWVXZWxjb21lMTAxJA==");
 
-  // mpesa
-  // .lipaNaMpesaOnline({
-  //   BusinessShortCode:123456,
-  //   Amount:10000,
-  //   PartyA: 'Party A',
-  //   PartyB: 'Party B',
-  //   PhoneNumber:'phoneNumber',
-  //   CallBackURL: 'CallBack URL',
-  //   AccountReference: 'Account Reference',
-  //   passKey: 'passKey',
-  //   TransactionType: 'Transaction Type',
-  //   TransactionDesc: 'Transaction',
-  // })
-  // .then((response) => {
-  //   console.log(response);
-  // })
-  // .catch((error) => {
-  //   console.error(error);
-  // })
+let raw = {
+  BusinessShortCode: "584065",
+  Timestamp: "2023020609462345",
+  TransactionType: "CustomerPaybillOnline",
+  Amount: "10",
+  PartyA: "254796517348",
+  PartyB: "584065",
+  PhoneNumber: "254796517348",
+  CallBackURL: "https://api.infobip.com/bots/webhook/9A50AD798A8494DEA9296EA95EE4451D99962C26F4CB6ECB34D871FEB9223A07",
+  AccountReference: "254720820852",
+  TransactionDesc: "Student PA payment",
+  partnersName: "Britam",
+}
+
+let requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  // redirect: 'follow'
+};
+
+fetch("http://10.10.4.62:9005/ESB/RS/MpesaPartners/rest/stkPush",{mode:'no-cors'}, requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
 
   return (
     <div className='flex w-full min-h-screen justify-evenly items-center pt-4'>
@@ -77,13 +85,19 @@ function Payment() {
          </label>
          </div>
           <div className='pt-6'>
-          <button className='rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider bg-secondary-300 text-white'>
+          <button 
+          className='rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider bg-secondary-300 text-white'
+          >
             Complete Payment</button>
           </div>
             </div>
         </div>
 
     </div>
+
+    {showCompleteModal && (
+      <CompleteModal openCompleteModal={openCompleteModal}/>
+    )}
 </div>
   );
 }

@@ -6,7 +6,7 @@ function Quote({ details}) {
   function sendEmail(details) {
     const emailData = {
       from: 'muirurim@britam.com',
-      to: ``,
+      to: '{details.email}',
       subject: 'Travel Insurance Quote',
       text: JSON.stringify(details),
     };

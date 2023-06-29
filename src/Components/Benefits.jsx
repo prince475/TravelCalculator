@@ -98,6 +98,8 @@ function Benefits({ selectedPlan, setSelectedPlan }) {
     setSelectedPlan(plan);
   };
 
+  const exchangeRate = 140;
+
   const targetUrl = selectedPlan == 'Group' ? '/group' : '/form';
 
   return (
@@ -201,7 +203,7 @@ function Benefits({ selectedPlan, setSelectedPlan }) {
                       {maxSumInsured}
                     </td>
                     <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
-                      KES 3,400,000
+                      {maxSumInsured * exchangeRate}
                     </td>
                   </tr>
                 )
