@@ -1,6 +1,38 @@
 import React, { useState } from "react";
+// import { Mpesa } from "mpesa-api";
 
 function Payment() {
+  // const mpesa = new Mpesa(credentials, environment);
+
+  // const credentials = {
+  //   clientKey: 'CONSUMER_KEY_HERE',
+  //   clientSecret: 'CONSUMER_SECRET_HERE',
+  //   initiatorPassword: 'INITIATOR_PASSWORD',
+  //   securityCredenial: 'SECURITY_CREDENTIALS',
+  //   certificatePath: 'keys/certificates.cert',
+  // };
+
+  // const environment = 'sandbox';
+
+  // mpesa
+  // .lipaNaMpesaOnline({
+  //   BusinessShortCode:123456,
+  //   Amount:10000,
+  //   PartyA: 'Party A',
+  //   PartyB: 'Party B',
+  //   PhoneNumber:'phoneNumber',
+  //   CallBackURL: 'CallBack URL',
+  //   AccountReference: 'Account Reference',
+  //   passKey: 'passKey',
+  //   TransactionType: 'Transaction Type',
+  //   TransactionDesc: 'Transaction',
+  // })
+  // .then((response) => {
+  //   console.log(response);
+  // })
+  // .catch((error) => {
+  //   console.error(error);
+  // })
 
   return (
     <div className='flex w-full min-h-screen justify-evenly items-center pt-4'>

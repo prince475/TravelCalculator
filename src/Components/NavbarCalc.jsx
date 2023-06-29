@@ -69,11 +69,11 @@ function NavbarCalc() {
                 Policies and Terms
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink exact to="/upload">
                 Uploads
               </NavLink>
-            </li>
+            </li> */}
           </ul>
         </div>
         <img src={logo} className="w-20" alt="logo"></img>
@@ -100,11 +100,11 @@ function NavbarCalc() {
               Policies and Terms
             </NavLink>
           </li>
-          <li>
+          {/* <li>
               <NavLink exact to="/upload">
                 Uploads
               </NavLink>
-            </li>
+            </li> */}
         </ul>
       </div>
       <div className="avatar" onClick={openRegistrationPopup}>
