@@ -299,7 +299,7 @@ function Home() {
             <form action="#">
               <div className="grid grid-cols-2 gap-5 pt-2">
                 <label className="firstName text-gray-500 text-small">
-                  FirstName
+                  First Name
                   <input
                     type="text"
                     id="firstname"
@@ -308,10 +308,11 @@ function Home() {
                     onChange={handleChange}
                     placeholder="John"
                     className="border border-gray-400 py-1 px-2 font-body rounded"
+                    style={{ backgroundColor: 'white', color: 'black' }}
                   ></input>
                 </label>
                 <label className="lastName text-gray-500 text-small">
-                  Lastname
+                  Last Name
                   <input
                     type="text"
                     id="lastname"
@@ -320,6 +321,7 @@ function Home() {
                     onChange={handleChange}
                     placeholder="Doe"
                     className="border border-gray-400 py-1 px-2 font-body rounded"
+                    style={{ backgroundColor: 'white', color: 'black' }}
                   ></input>
                 </label>
               </div>
@@ -334,6 +336,7 @@ function Home() {
                     onChange={handleChange}
                     placeholder="12345678"
                     className="border border-gray-400 py-1 px-2 w-full font-body rounded"
+                    style={{ backgroundColor: 'white', color: 'black' }}
                   ></input>
                 </label>
               </div>
@@ -348,6 +351,7 @@ function Home() {
                     onChange={handleChange}
                     placeholder="07/01 "
                     className="border border-gray-400 py-1 px-2 w-full font-body rounded"
+                    style={{ backgroundColor: 'white', color: 'black' }}
                   ></input>
                 </label>
               </div>
@@ -362,6 +366,7 @@ function Home() {
                     onChange={handleChange}
                     placeholder="Email"
                     className="border border-gray-400 py-1 px-2 w-full font-body rounded"
+                    style={{ backgroundColor: 'white', color: 'black' }}
                   ></input>
                 </label>
               </div>
@@ -378,6 +383,7 @@ function Home() {
                     min="1997-01-01"
                     max="2023-05-25"
                     className="border border-gray-400 py-1 px-2 w-full font-body rounded"
+                    style={{ backgroundColor: 'white', color: 'black' }}
                   ></input>
                 </label>
               </div>
@@ -395,11 +401,12 @@ function Home() {
                 <label className="purpose text-gray-500 text-small">
                   Purpose of Travel
                   <select
-                    className="block w-64 border-gray-400 font-light"
+                    className="border border-gray-400 py-1 px-2 w-full font-body rounded"
                     id="purpose"
                     required
                     value={formData.purpose}
                     onChange={handleChange}
+                    style={{ backgroundColor: 'white', color: 'black' }}
                   >
                     <option value="Leisure">Leisure</option>
                     <option value="Education">Education</option>
@@ -410,11 +417,12 @@ function Home() {
                 <label className="lastName text-gray-500 text-small">
                   Mode of Travel
                   <select
-                    className="block w-64 border-gray-400 font-light"
+                    className="border border-gray-400 py-1 px-2 w-full font-body rounded"
                     id="mode"
                     required
                     value={formData.mode}
                     onClick={handleChange}
+                    style={{ backgroundColor: 'white', color: 'black' }}
                   >
                     <option value="Leisure">Plane</option>
                   </select>
@@ -424,11 +432,12 @@ function Home() {
                 <label className="purpose text-gray-500 text-small">
                   Country of Travel
                   <select
-                    className="block w-64 border-gray-400 font-light"
+                    className="border border-gray-400 py-1 px-2 w-full font-body rounded"
                     id="country"
                     required
                     value={formData.country}
                     onChange={handleChange}
+                    style={{ backgroundColor: 'white', color: 'black' }}
                   >
                     {countries.map((country, index) =>  (
                       <option key={index} value={country}>{country}</option>
@@ -448,6 +457,7 @@ function Home() {
                     onChange={handleChange}
                     placeholder="Quotation Date"
                     className="border border-gray-400 py-1 px-2 w-full font-body rounded"
+                    style={{ backgroundColor: 'white', color: 'black' }}
                   ></input>
                 </label>
               </div>

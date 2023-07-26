@@ -43,6 +43,7 @@ const Table = () => {
           value={name}
           onChange={handleNameChange}
           className="border border-gray-400 py-1 px-2 w-full font-body rounded"
+          style={{ backgroundColor: 'white', color: 'black' }}
         />
         <input
           type="number"
@@ -50,6 +51,7 @@ const Table = () => {
           value={phone}
           onChange={handlePhoneChange}
           className="border border-gray-400 py-1 px-2 w-full font-body rounded"
+          style={{ backgroundColor: 'white', color: 'black' }}
         />
         <input
           type="tel"
@@ -57,14 +59,21 @@ const Table = () => {
           value={relation}
           onChange={handleRelationChange}
           className="border border-gray-400 py-1 px-2 w-full font-body rounded"
+          style={{ backgroundColor: 'white', color: 'black' }}
         />
+        <br/>
       </div>
+         
+        <br/>
+         
       <button
           onClick={handleAdd}
           className="bg-blue-500 hover:bg-blue-600 text-white font-bold px-4 py-2 rounded"
-        >
-          Add
-        </button>
+      >
+        Add
+      </button>
+
+      <br/>
 
       <table className="w-full border">
         <thead>

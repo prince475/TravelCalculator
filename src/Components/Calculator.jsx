@@ -398,6 +398,7 @@ console.log('exchangeRate', exchangeRate)
                       value={clientAge}
                       onChange={(e) => setClientAge(e.target.value)}
                       required
+                      style={{ backgroundColor: 'white', color: 'black' }}
                     />
                     {(selectedPlan === "Student" || clientType === "Student") &&
                       (clientAge < 16 || clientAge > 45) && (
@@ -420,7 +421,9 @@ console.log('exchangeRate', exchangeRate)
                     <select
                       className="block w-64 border-b border-gray-400 font-light"
                       value={clientType}
-                      onChange={(e) => setClientType(e.target.value) }>
+                      onChange={(e) => setClientType(e.target.value) }
+                      style={{ backgroundColor: 'white', color: 'black' }}
+                    >
                       <option value="Individual"> Individual</option>
                       <option value="Student"> Student</option>
                       <option value="Group"> Group</option>
@@ -433,6 +436,7 @@ console.log('exchangeRate', exchangeRate)
                       className="block w-64 border-b border-gray-400 font-light"
                       value={selectedPlan}
                       onChange={(e) => setSelectedPlan(e.target.value) }
+                      style={{ backgroundColor: 'white', color: 'black' }}
                     >
                       {clientType === "Individual" ? (
                         <>
@@ -456,6 +460,7 @@ console.log('exchangeRate', exchangeRate)
                       type="number"
                       value={numberOfTravellers}
                       onChange={(e) => setNumberOfTravellers(e.target.value)}
+                      style={{ backgroundColor: 'white', color: 'black' }}
                       // set min and max value for no of travellers in a group
                       {...(clientType === "Group" && { min: "10", max: "500" })}
                       // set value to 1 if client is student or individual
@@ -480,7 +485,9 @@ console.log('exchangeRate', exchangeRate)
                     <select
                       className="block w-64 border-b border-gray-400 font-light"
                       value={selectedTripType}
-                      onChange={(e) => setSelectedTripType(e.target.value)} >
+                      onChange={(e) => setSelectedTripType(e.target.value)} 
+                      style={{ backgroundColor: 'white', color: 'black' }}
+                      >
                       {/* Only premium plan allows for single and inbound trip. The other plans (gold, student, schnegen, group) only allow for single trip. */}
 
                       {selectedPlan === "Premium" ? (
@@ -499,7 +506,9 @@ console.log('exchangeRate', exchangeRate)
                     <select
                       className="block w-64 border-b border-gray-400 font-light"
                       value={selectedDestination}
-                      onChange={(e) => setSelectedDestination(e.target.value)}>
+                      onChange={(e) => setSelectedDestination(e.target.value)}
+                      style={{ backgroundColor: 'white', color: 'black' }}
+                    >
                       {/* This code conditionally renders destination options based on the client type. */}
                       {clientType === "Student" ||
                       selectedPlan === "Student" ? (
@@ -526,6 +535,7 @@ console.log('exchangeRate', exchangeRate)
                         className="block w-64 border-b border-gray-400 font-light"
                         value={periodOfCover}
                         onChange={(e) => setPeriodOfCover(e.target.value)}
+                        style={{ backgroundColor: 'white', color: 'black' }}
                       >
                         <option value="1-7"> 1-7</option>
                         <option value="8-10"> 8-10</option>
@@ -584,6 +594,7 @@ console.log('exchangeRate', exchangeRate)
                       <label
                         className="age font-bold text-gray-500 text-small"
                         htmlFor="yes"
+                        //style={{ color: warAndTerrorism === "yes" ? "black" : "white" }}
                       >
                         Yes
                       </label>
@@ -594,12 +605,15 @@ console.log('exchangeRate', exchangeRate)
                         name="warTerrorism"
                         value="yes"
                         checked={warAndTerrorism === "yes"}
-                        onChange={(e) => setWarAndTerrorism(e.target.value)}/>
+                        onChange={(e) => setWarAndTerrorism(e.target.value)}
+                        style={{ color: warAndTerrorism === "yes" ? "black" : "white" }}
+                      />
                     </div>
                     <div className="flex items-center">
                       <label
                         className="age font-bold text-gray-500 text-small"
                         htmlFor="no"
+                        //style={{ color: warAndTerrorism === "no" ? "black" : "white" }}
                       >
                         No
                       </label>
@@ -610,7 +624,9 @@ console.log('exchangeRate', exchangeRate)
                         name="warTerrorism"
                         value="no"
                         checked={warAndTerrorism === "no"}
-                        onChange={(e) => setWarAndTerrorism(e.target.value)}/>
+                        onChange={(e) => setWarAndTerrorism(e.target.value)}
+                        style={{ color: warAndTerrorism === "no" ? "black" : "white" }}
+                        />
                     </div>
                   </div>
                 </div>

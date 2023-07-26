@@ -45,16 +45,16 @@ function ImageSlide() {
                   <div className="badge badge-secondary">HEALTH</div>
                 </h2>
                 <div className="flex">
-                <FaTag className="w-7 h-7 pt-2 pl-2" />
-                <p>Emergency Medical Expenses and Evacuation</p>
+                  <FaTag className="w-7 h-7 pt-2 pl-2" style={{ marginRight: '10px' }}/>
+                  <p>Emergency Medical Expenses and Evacuation</p>
                 </div>
                 <div className="flex">
-                <FaTag className="w-5 h-5 pt-2 pl-2" />
-                <p>Hospital Benefits</p>
+                  <FaTag className="w-5 h-5 pt-2 pl-2" style={{ marginRight: '10px' }}/>
+                  <p>Hospital Benefits</p>
                 </div>
                 <div className="flex">
-                <FaTag className="w-5 h-5 pt-2 pl-2" />
-                <p>Emergency Dental Care</p>
+                  <FaTag className="w-5 h-5 pt-2 pl-2" style={{ marginRight: '10px' }}/>
+                  <p>Emergency Dental Care</p>
                 </div>
               </div>
             </div>
@@ -77,16 +77,16 @@ function ImageSlide() {
                   <div className="badge badge-secondary">SAFETY</div>
                 </h2>
                 <div className="flex">
-                <FaTag className="w-5 h-5 pt-2 pl-2" />
-                <p>Travel Delay</p>
+                  <FaTag className="w-5 h-5 pt-2 pl-2" style={{ marginRight: '10px' }}/>
+                  <p>Travel Delay</p>
                 </div>
                 <div className="flex">
-                <FaTag className="w-5 h-5 pt-2 pl-2" />
-                <p>Cancellation and Curtailment</p>
+                  <FaTag className="w-5 h-5 pt-2 pl-2" style={{ marginRight: '10px' }}/>
+                  <p>Cancellation and Curtailment</p>
                 </div>
                 <div className="flex">
-                <FaTag className="w-5 h-5 pt-2 pl-2" />
-                <p>Loss of passport & checked luggage</p>
+                  <FaTag className="w-5 h-5 pt-2 pl-2" style={{ marginRight: '10px' }}/>
+                  <p>Loss of passport & checked luggage</p>
                 </div>
               </div>
             </div>
