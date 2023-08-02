@@ -5,29 +5,43 @@ import medical from "../Components/Images/medical.png";
 import trip from "../Components/Images/tripdisruption.jpg";
 import suitcase from "../Components/Images/suitcase.png";
 import Benefits from './Benefits'
+import { Link } from 'react-router-dom';
+
 
 function ImageSlide() {
   return (
-    <>
-      <div>
+    
+      <div className="image-slide-container">
         <div className="hero min-h-screen">
           <div className="hero-overlay bg-opacity-60"></div>
           <div className=" text-center text-neutral-content bg-sky-600 bg-opacity-50">
             <div className="max-w-md">
-              <h2 className="mb-5 text-3xl font-bold">
+              <h2 className="mb-5 text-3xl font-bold" style={{ color: 'white' }}>
                 Travel with Confidence: Your Ultimate Travel Insurance Partner!
               </h2>
-              <p className="mb-5">
+              <p className="mb-5" style={{ color: 'white' }}>
                 Our comprehensive coverage, personalized service, and seamless
                 claims process ensure peace of mind. Focus on making memories
                 while we handle the rest. Don't let uncertainties hold you back
                 - travel confidently with us!
               </p>
+
             </div>
           </div>
-        </div>
 
-        <hr className="border-sky-400 w-3/4 m-auto mb-4 mt-3" />
+          <div className="bottom-container">
+            <div className="text-center">
+              <Link to='/travelCalculator'>
+                <button className="btn">
+                  Get a Quote
+                </button>
+              </Link>
+            </div>
+          </div>
+
+        </div>
+        {/* Below To be discussed  */}
+        {/* <hr className="border-sky-400 w-3/4 m-auto mb-4 mt-3" />
 
         <div className="flex flex-col w-full lg:flex-row">
           <div className="grid flex-grow card  rounded-box place-items-center">
@@ -39,31 +53,31 @@ function ImageSlide() {
                   className="w-full h-32 sm:h-48"
                 />
               </figure>
-              <div className="card-body">
+              <div className="card-body" style={{ color: 'black' }}>
                 <h2 className="card-title">
                   Medical
                   <div className="badge badge-secondary">HEALTH</div>
                 </h2>
                 <div className="flex">
-                  <FaTag className="w-7 h-7 pt-2 pl-2" style={{ marginRight: '10px' }}/>
+                  <FaTag className="w-7 h-7 pt-2 pl-2" style={{ marginRight: '10px' }} />
                   <p>Emergency Medical Expenses and Evacuation</p>
                 </div>
                 <div className="flex">
-                  <FaTag className="w-5 h-5 pt-2 pl-2" style={{ marginRight: '10px' }}/>
+                  <FaTag className="w-5 h-5 pt-2 pl-2" style={{ marginRight: '10px' }} />
                   <p>Hospital Benefits</p>
                 </div>
                 <div className="flex">
-                  <FaTag className="w-5 h-5 pt-2 pl-2" style={{ marginRight: '10px' }}/>
+                  <FaTag className="w-5 h-5 pt-2 pl-2" style={{ marginRight: '10px' }} />
                   <p>Emergency Dental Care</p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="divider lg:divider-horizontal divide-red-500">
+          <div className="divider lg:divider-horizontal divide-red-500" style={{ color: 'black' }}>
             AND
           </div>
           <div className="grid flex-grow card bg-base-300 rounded-box place-items-center">
-          <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card w-96 bg-base-100 shadow-xl">
               <figure>
                 <img
                   src={suitcase}
@@ -71,29 +85,28 @@ function ImageSlide() {
                   className="w-full h-32 sm:h-48"
                 />
               </figure>
-              <div className="card-body">
+              <div className="card-body" style={{ color: 'black' }}>
                 <h2 className="card-title">
                   Trip Mishaps
                   <div className="badge badge-secondary">SAFETY</div>
                 </h2>
                 <div className="flex">
-                  <FaTag className="w-5 h-5 pt-2 pl-2" style={{ marginRight: '10px' }}/>
+                  <FaTag className="w-5 h-5 pt-2 pl-2" style={{ marginRight: '10px' }} />
                   <p>Travel Delay</p>
                 </div>
                 <div className="flex">
-                  <FaTag className="w-5 h-5 pt-2 pl-2" style={{ marginRight: '10px' }}/>
+                  <FaTag className="w-5 h-5 pt-2 pl-2" style={{ marginRight: '10px' }} />
                   <p>Cancellation and Curtailment</p>
                 </div>
                 <div className="flex">
-                  <FaTag className="w-5 h-5 pt-2 pl-2" style={{ marginRight: '10px' }}/>
+                  <FaTag className="w-5 h-5 pt-2 pl-2" style={{ marginRight: '10px' }} />
                   <p>Loss of passport & checked luggage</p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
-    </>
   );
 }
 

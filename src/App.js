@@ -16,6 +16,8 @@ import LoginModal from './Components/LoginModal';
 import Upload from './Components/Upload';
 import DetailsDisplay from './Components/DetailsDisplay';
 import Quote from './Components/Quote';
+import HelloTravel from './Components/HelloTravel';
+
 
 
 function App() {
@@ -30,7 +32,8 @@ function App() {
       <Route path='/calcbenefits' element={<CalcBenefits/>}></Route>
       <Route path='/travelCalculator' element={<Calculator selectedPlan={selectedPlan} setSelectedPlan={setSelectedPlan} />}></Route>
       <Route path='/policies' element={<Policy/>}></Route>
-      <Route path='/form' element={<Home/>}></Route>
+      {/* <Route path='/form' element={<Home/>}></Route> */}
+      <Route path='/form' element={<HelloTravel/>}></Route>
       <Route path='/group' element={<Group/>}></Route>
       <Route path='/payments' element={<Payment/>}></Route>
       <Route path='/login' element={<LoginModal/>}></Route>

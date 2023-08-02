@@ -5,7 +5,7 @@ import Upload from "./Upload";
 import { useNavigate } from "react-router-dom";
 
 
-function Home() {
+function HelloTravel() {
   const countries = [
     'Afghanistan',
     'Albania',
@@ -203,6 +203,93 @@ function Home() {
     'Zambia',
     'Zimbabwe'
   ];
+  const [data, setData] = useState([]);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [relation, setRelation] = useState("");
+  const [imageFile, setImageFile] = useState(null);
+  const [pdfFile, setPdfFile] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleFileUpload = (event, fileType) => {
+    const file = event.target.files[0];
+
+    if (file) {
+      if (file.type.includes("image") && fileType === "image") {
+        convertFileToBase64(file, (base64Data) => {
+          setImageFile(base64Data);
+        });
+        setErrorMessage("");
+      } else if (file.type === "application/pdf" && fileType === "pdf") {
+        convertFileToBase64(file, (base64Data) => {
+          setPdfFile(base64Data);
+        });
+        setErrorMessage("");
+      } else {
+        setErrorMessage(
+          fileType === "image"
+            ? "Please select a valid image file."
+            : "Please select a valid PDF file."
+        );
+      }
+    } else {
+      setImageFile(null);
+      setPdfFile(null);
+      setErrorMessage("");
+    }
+  };
+
+  const convertFileToBase64 = (file, callback) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const base64Data = reader.result;
+      console.log('Base64 Data:', base64Data);
+      callback(base64Data);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleRemoveFile = (fileType) => {
+    if (fileType === "image") {
+      setImageFile(null);
+    } else if (fileType === "pdf") {
+      setPdfFile(null);
+    }
+  };
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handlePhoneChange = (e) => {
+    setPhone(e.target.value);
+  };
+
+  const handleRelationChange = (e) => {
+    setRelation(e.target.value);
+  };
+
+
+  const handleAdd = () => {
+    if (name && phone && relation) {
+      // console.log('logwdedwdws')
+      const newData = [...data, { name, phone, relation }];
+      setData(newData);
+      setName("");
+      setPhone("");
+      setRelation("");
+    }
+    // else (
+    //   console.log("HEHEHEHE")
+    // )
+  };
+
+  const handleDelete = (index) => {
+    const newData = [...data];
+    newData.splice(index, 1);
+    setData(newData);
+  };
+
 
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -220,7 +307,6 @@ function Home() {
     kraPin: "",
   });
   const [isChecked, setIsChecked] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
 
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);
@@ -285,6 +371,38 @@ function Home() {
 
     setErrorMessage("");
     navigate("/payments");
+
+
+
+
+
+
+
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+
+      // Handle the submission logic here, such as sending the Base64 data to the server
+
+      // Example: Create a FormData object and append the Base64 data
+      const formData = new FormData();
+      if (imageFile) {
+        formData.append("imageFile", imageFile);
+      }
+      if (pdfFile) {
+        formData.append("pdfFile", pdfFile);
+      }
+
+      try {
+        const response = await fetch("http://localhost:8000/clients", {
+          method: "POST",
+          body: formData,
+        });
+        const data = await response.json();
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
   };
 
   return (
@@ -294,7 +412,7 @@ function Home() {
           <div className="w-full lg:w-1/2 flex flex-col items-center justify-center p-4 ">
             {/* add background image later --bg-[url(../Components/Images/visa.png)] bg-no-repeat bg-cover bg-center */}
             <h1 className="text-2xl mb-3 font-bold font-body">
-              Ensure You have filled the Calculator
+              Ensure you have filled the Calculator
             </h1>
             <form action="#">
               <div className="grid grid-cols-2 gap-5 pt-2">
@@ -349,7 +467,7 @@ function Home() {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="07/01 "
+                    placeholder="07XXXXXXXX"
                     className="border border-gray-400 py-1 px-2 w-full font-body rounded"
                     style={{ backgroundColor: 'white', color: 'black' }}
                   ></input>
@@ -387,10 +505,75 @@ function Home() {
                   ></input>
                 </label>
               </div>
+
               <div className="mt-5 flex flex-col-3 gap-5">
                 <label className="nextOfKin text-gray-500 text-small">
                   Next of Kin
-                  <Random />
+                  <div className="">
+                    <div className="mt-4 grid grid-cols-3 pr-1">
+                      <input
+                        required
+                        type="text"
+                        placeholder="Name"
+                        value={name}
+                        onChange={handleNameChange}
+                        className="border border-gray-400 py-1 px-2 w-full font-body rounded"
+                        style={{ backgroundColor: 'white', color: 'black' }}
+                      />
+                      <input
+                        required
+                        type="number"
+                        placeholder="Age"
+                        value={phone}
+                        onChange={handlePhoneChange}
+                        className="border border-gray-400 py-1 px-2 w-full font-body rounded"
+                        style={{ backgroundColor: 'white', color: 'black' }}
+                      />
+                      <input
+                        required
+                        type="tel"
+                        placeholder="Relation"
+                        value={relation}
+                        onChange={handleRelationChange}
+                        className="border border-gray-400 py-1 px-2 w-full font-body rounded"
+                        style={{ backgroundColor: 'white', color: 'black' }}
+                      />
+                    </div>
+
+                    <button
+                      onClick={handleAdd}
+                      className="bg-blue-500 hover:bg-blue-600 text-white font-bold px-4 py-2 rounded"
+                    >
+                      Add
+                    </button>
+
+                    <table className="w-full border">
+                      <thead>
+                        <tr className="bg-gray-200">
+                          <th className="border px-4 py-2">Name</th>
+                          <th className="border px-4 py-2">Phone Number</th>
+                          <th className="border px-4 py-2">Relation</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {data.map((item, index) => (
+                          <tr key={index} className="bg-white">
+                            <td className="border px-4 py-2">{item.name}</td>
+                            <td className="border px-4 py-2">{item.phone}</td>
+                            <td className="border px-4 py-2">{item.relation}</td>
+                            <td className="border px-4 py-2">
+                              <button
+                                className="bg-red-500 hover:bg-red-600 text-white font-bold px-2 py-1 rounded"
+                                onClick={() => handleDelete(index)}
+                              >
+                                Delete
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </label>
               </div>
             </form>
@@ -462,8 +645,58 @@ function Home() {
                 </label>
               </div>
 
-              <Upload />
-              {/* Upload Features */}
+              {/* <Upload /> */}
+              <div className="flex mt-5">
+                <label className="text-gray-500 text-small">
+                  Upload ID File
+                  <input
+                    className="border-gray-400 font-body rounded"
+                    type="file"
+                    id="idFile"
+                    accept=".pdf, image/*"
+                    onChange={(event) => handleFileUpload(event, "image")}
+                  />
+                  {imageFile && (
+                    <div>
+                      <p>Selected Image:</p>
+                      <img src={imageFile} alt="Uploaded" />
+                      <button
+                        className="rounded-full py-2 px-3 text-xs font-bold cursor-pointer tracking-wider bg-secondary-500 text-white"
+                        onClick={() => handleRemoveFile("image")}
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  )}
+                </label>
+
+                <label className="text-gray-500 text-small">
+                  Upload KRA Pin File
+                  <input
+                    className="border-gray-400 font-body rounded"
+                    type="file"
+                    id="kraPin"
+                    accept=".pdf, image/*"
+                    onChange={(event) => handleFileUpload(event, "pdf")}
+                  />
+                  {pdfFile && (
+                    <div>
+                      <p>Selected PDF: {pdfFile.name}</p>
+                      <button
+                        className="rounded-full py-2 px-3 text-xs font-bold cursor-pointer tracking-wider bg-secondary-500 text-white"
+                        onClick={() => handleRemoveFile("pdf")}
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  )}
+
+                  {errorMessage && (
+                    <p className="error text-secondary-500">{errorMessage}</p>
+                  )}
+                </label>
+              </div>
+
 
               <div className="pt-6">
                 <input
@@ -488,9 +721,9 @@ function Home() {
                   Proceed To Payment
                 </button>
 
-                <button className="btn" onClick={handleQuote}>
+                {/* <button className="btn" onClick={handleQuote}>
                   Get a Quote
-                </button>
+                </button> */}
               </div>
               {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
             </form>
@@ -529,4 +762,4 @@ function Home() {
 
 }
 
-export default Home;
+export default HelloTravel;

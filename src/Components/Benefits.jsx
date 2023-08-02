@@ -8,6 +8,7 @@ function Benefits({ selectedPlan, setSelectedPlan }) {
   };
   // Define the max sum insured values based on the selected plan
   const maxSumInsuredValues = {
+
     Gold: {
       "Personal Accident - DEATH/PTD": "$27,500",
       "Emergency Medical Expenses and Evacuation": "$150,000",
@@ -98,6 +99,12 @@ function Benefits({ selectedPlan, setSelectedPlan }) {
     setSelectedPlan(plan);
   };
 
+  const test = (plan) => {
+
+    console.log("Testingdffdfdfdfdfd" + plan)
+    //setSelectedPlan(plan);
+  };
+
   const exchangeRate = 140;
 
   const targetUrl = selectedPlan == 'Group' ? '/group' : '/form';
@@ -128,47 +135,47 @@ function Benefits({ selectedPlan, setSelectedPlan }) {
 
         {/* Tabs */}
         <div className="flex justify-around">
-          <div
+
+
+
+          <div 
+        id = "test"
             style={tabStyle}
-            className={`py-2 px-4 text-sm font-semibold cursor-pointer ${
-              selectedPlan === "Gold" ? "bg-red-300" : "bg-gray-100"
-            }`}
+            className={`py-2 px-4 text-sm font-semibold cursor-pointer ${selectedPlan === "Gold" ?  "bg-red-300" : "hidden"
+               }`}
             onClick={() => handleTabClick("Gold")}
           >
             Gold Plan
           </div>
+          
           <div
             style={tabStyle}
-            className={`py-2 px-4 text-sm font-semibold cursor-pointer ${
-              selectedPlan === "Premium" ? "bg-red-300" : "bg-gray-100"
-            }`}
+            className={`py-2 px-4 text-sm font-semibold cursor-pointer ${selectedPlan === "Premium" ? "bg-red-300" : "hidden"
+              }`}
             onClick={() => handleTabClick("Premium")}
           >
             Premium Plan
           </div>
           <div
             style={tabStyle}
-            className={`py-2 px-4 text-sm font-semibold cursor-pointer ${
-              selectedPlan === "Schnegen" ? "bg-red-300" : "bg-gray-100"
-            }`}
+            className={`py-2 px-4 text-sm font-semibold cursor-pointer ${selectedPlan === "Schnegen" ? "bg-red-300" : "hidden"
+              }`}
             onClick={() => handleTabClick("Schnegen")}
           >
             Schnegen Plan
           </div>
           <div
             style={tabStyle}
-            className={`py-2 px-4 text-sm font-semibold cursor-pointer ${
-              selectedPlan === "Group" ? "bg-red-300" : "bg-gray-100"
-            }`}
+            className={`py-2 px-4 text-sm font-semibold cursor-pointer ${selectedPlan === "Group" ? "bg-red-300" : "hidden"
+              }`}
             onClick={() => handleTabClick("Group")}
           >
             Group Plan
           </div>
           <div
             style={tabStyle}
-            className={`py-2 px-4 text-sm font-semibold cursor-pointer ${
-              selectedPlan === "Student" ? "bg-red-300" : "bg-gray-100"
-            }`}
+            className={`py-2 px-4 text-sm font-semibold cursor-pointer ${selectedPlan === "Student" ? "bg-red-300" : "hidden"
+              }`}
             onClick={() => handleTabClick("Student")}
           >
             Student Plan
@@ -212,12 +219,12 @@ function Benefits({ selectedPlan, setSelectedPlan }) {
           </table>
 
           <div className="text-center pt-4 pb-4">
-          <Link to={targetUrl}>
-            <button className="rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider bg-secondary-300 text-white">
-              Buy Now
-            </button>
-          </Link>
-        </div>
+            <Link to={targetUrl}>
+              <button className="rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider bg-secondary-300 text-white">
+                Buy Now
+              </button>
+            </Link>
+          </div>
         </div>
 
       </main>

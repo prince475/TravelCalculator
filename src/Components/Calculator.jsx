@@ -214,7 +214,7 @@ const premiums = {
   },
 };
 
-export default function TI_Calculator({selectedPlan, setSelectedPlan}) {
+export default function TI_Calculator({ selectedPlan, setSelectedPlan }) {
   const [clientAge, setClientAge] = useState(1);
   const [clientType, setClientType] = useState("Individual");
   const [ageRange, setAgeRange] = useState("");
@@ -244,7 +244,7 @@ export default function TI_Calculator({selectedPlan, setSelectedPlan}) {
   //current exchange rate
   const exchangeRate = 140;
 
-//fetchData
+  //fetchData
   const [calcData, setCalcData] = useState({
     client_age: '',
     client_type: '',
@@ -266,27 +266,27 @@ export default function TI_Calculator({selectedPlan, setSelectedPlan}) {
     });
   }
 
-//fetch exchange rate function
+  //fetch exchange rate function
 
-/** uncomment this code to fetch exchange rate from api
- useEffect(()=> {
-  const fetchExchangeRate = async () => {
-    try {
-      const response = await fetch("https://api.apilayer.com/exchangerates_data/convert?to=KES&from=USD&amount=1", {
-        headers: { apikey: "" },
-      });
-      const responseData = await response.json();
-      console.log('responseData', responseData.result)
-      setExchangeRate(responseData.result);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  fetchExchangeRate();
-}, [])
-console.log('exchangeRate', exchangeRate)
-*/
+  /** uncomment this code to fetch exchange rate from api
+   useEffect(()=> {
+    const fetchExchangeRate = async () => {
+      try {
+        const response = await fetch("https://api.apilayer.com/exchangerates_data/convert?to=KES&from=USD&amount=1", {
+          headers: { apikey: "" },
+        });
+        const responseData = await response.json();
+        console.log('responseData', responseData.result)
+        setExchangeRate(responseData.result);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  
+    fetchExchangeRate();
+  }, [])
+  console.log('exchangeRate', exchangeRate)
+  */
 
   //set agerange if client type is individual
   useEffect(() => {
@@ -393,8 +393,7 @@ console.log('exchangeRate', exchangeRate)
                   <label className="age font-bold text-gray-500 text-small">
                     Client age:
                     <input
-                      className="block w-64 border-b border-gray-400 font-light"
-                      type="number"
+                      className="border border-gray-400 py-1 px-2 w-full font-body rounded font-light" type="number"
                       value={clientAge}
                       onChange={(e) => setClientAge(e.target.value)}
                       required
@@ -408,7 +407,7 @@ console.log('exchangeRate', exchangeRate)
                           you are older than 45.
                         </small>
                       )}
-                      {(clientType === "Individual") &&
+                    {(clientType === "Individual") &&
                       (clientAge > 80) && (
                         <small className="flex text-xs w-64" style={{ color: "red" }}>
                           Warning: Maximum age at expiry of insurance is 80 yrs
@@ -419,9 +418,8 @@ console.log('exchangeRate', exchangeRate)
                   <label className="age font-bold text-gray-500 text-small">
                     Client type
                     <select
-                      className="block w-64 border-b border-gray-400 font-light"
-                      value={clientType}
-                      onChange={(e) => setClientType(e.target.value) }
+                      className="border border-gray-400 py-1 px-2 w-full font-body rounded font-light custom-select-dropdown" value={clientType}
+                      onChange={(e) => setClientType(e.target.value)}
                       style={{ backgroundColor: 'white', color: 'black' }}
                     >
                       <option value="Individual"> Individual</option>
@@ -433,9 +431,8 @@ console.log('exchangeRate', exchangeRate)
                   <label className="age font-bold text-gray-500 text-small">
                     Type of plan
                     <select
-                      className="block w-64 border-b border-gray-400 font-light"
-                      value={selectedPlan}
-                      onChange={(e) => setSelectedPlan(e.target.value) }
+                      className="border border-gray-400 py-1 px-2 w-full font-body rounded font-light" value={selectedPlan}
+                      onChange={(e) => setSelectedPlan(e.target.value)}
                       style={{ backgroundColor: 'white', color: 'black' }}
                     >
                       {clientType === "Individual" ? (
@@ -456,8 +453,7 @@ console.log('exchangeRate', exchangeRate)
                   <label className="age font-bold text-gray-500 text-small">
                     No. of travellers:
                     <input
-                      className="block w-64 border-b border-gray-400 font-light"
-                      type="number"
+                      className="border border-gray-400 py-1 px-2 w-full font-body rounded font-light" type="number"
                       value={numberOfTravellers}
                       onChange={(e) => setNumberOfTravellers(e.target.value)}
                       style={{ backgroundColor: 'white', color: 'black' }}
@@ -483,11 +479,10 @@ console.log('exchangeRate', exchangeRate)
                   <label className="age font-bold text-gray-500 text-small">
                     Type of trip
                     <select
-                      className="block w-64 border-b border-gray-400 font-light"
-                      value={selectedTripType}
-                      onChange={(e) => setSelectedTripType(e.target.value)} 
+                      className="border border-gray-400 py-1 px-2 w-full font-body rounded font-light" value={selectedTripType}
+                      onChange={(e) => setSelectedTripType(e.target.value)}
                       style={{ backgroundColor: 'white', color: 'black' }}
-                      >
+                    >
                       {/* Only premium plan allows for single and inbound trip. The other plans (gold, student, schnegen, group) only allow for single trip. */}
 
                       {selectedPlan === "Premium" ? (
@@ -504,14 +499,14 @@ console.log('exchangeRate', exchangeRate)
                   <label className="age font-bold text-gray-500 text-small">
                     Destination
                     <select
-                      className="block w-64 border-b border-gray-400 font-light"
+                      className="border border-gray-400 py-1 px-2 w-full font-body rounded font-light"
                       value={selectedDestination}
                       onChange={(e) => setSelectedDestination(e.target.value)}
                       style={{ backgroundColor: 'white', color: 'black' }}
                     >
                       {/* This code conditionally renders destination options based on the client type. */}
                       {clientType === "Student" ||
-                      selectedPlan === "Student" ? (
+                        selectedPlan === "Student" ? (
                         <>
                           <option value="Including USA and Canada">
                             Including USA and Canada
@@ -532,7 +527,7 @@ console.log('exchangeRate', exchangeRate)
                     Period of cover(days)
                     {showIndividualPeriodOfCover && (
                       <select
-                        className="block w-64 border-b border-gray-400 font-light"
+                        className="border border-gray-400 py-1 px-2 w-full font-body rounded font-light"
                         value={periodOfCover}
                         onChange={(e) => setPeriodOfCover(e.target.value)}
                         style={{ backgroundColor: 'white', color: 'black' }}
@@ -554,8 +549,9 @@ console.log('exchangeRate', exchangeRate)
                     {/* show if plan or client type is student */}
                     {showStudentPeriodOfCover && (
                       <select
-                        className="block w-64 border-b border-gray-400 font-light"
+                        className="border border-gray-400 py-1 px-2 w-full font-body rounded font-light"
                         value={periodOfCover}
+                        style={{ backgroundColor: 'white', color: 'black' }}
                         onChange={(e) => setPeriodOfCover(e.target.value)}>
                         <option value="1-90"> 1-90</option>
                         <option value="91-180"> 91-180</option>
@@ -567,14 +563,15 @@ console.log('exchangeRate', exchangeRate)
                       <div>
                         <label className="age font-bold text-gray-500 text-small">
                           <input
-                            className="block w-64 border-b border-gray-400 font-light"
+                            className="border border-gray-400 py-1 px-2 w-full font-body rounded font-light"
+                            style={{ backgroundColor: 'white', color: 'black' }}
                             type="number"
                             value={periodOfCover}
                             {...(clientType === "Group" && {
                               min: "3",
                               max: "200",
                             })}
-                            onChange={(e) => setPeriodOfCover(e.target.value)}/>
+                            onChange={(e) => setPeriodOfCover(e.target.value)} />
                         </label>
                         <br />
                         {periodOfCover < 3 || periodOfCover > 200 ? (
@@ -586,47 +583,50 @@ console.log('exchangeRate', exchangeRate)
                     )}
                   </label>
                   <br />
-                  <label className="age font-bold text-gray-500 text-small">
-                    War & Terrorism:
-                  </label>
-                  <div className="flex items-center">
+
+                  <div>
+                    <label className="age font-bold text-gray-500 text-small">
+                      War & Terrorism:
+                    </label>
                     <div className="flex items-center">
-                      <label
-                        className="age font-bold text-gray-500 text-small"
-                        htmlFor="yes"
+                      <div className="flex items-center">
+                        <label
+                          className="age font-bold text-gray-500 text-small"
+                          htmlFor="yes"
                         //style={{ color: warAndTerrorism === "yes" ? "black" : "white" }}
-                      >
-                        Yes
-                      </label>
-                      <input
-                        className=" w-12 border-b border-gray-600"
-                        type="radio"
-                        id="yes"
-                        name="warTerrorism"
-                        value="yes"
-                        checked={warAndTerrorism === "yes"}
-                        onChange={(e) => setWarAndTerrorism(e.target.value)}
-                        style={{ color: warAndTerrorism === "yes" ? "black" : "white" }}
-                      />
-                    </div>
-                    <div className="flex items-center">
-                      <label
-                        className="age font-bold text-gray-500 text-small"
-                        htmlFor="no"
-                        //style={{ color: warAndTerrorism === "no" ? "black" : "white" }}
-                      >
-                        No
-                      </label>
-                      <input
-                        className="w-12 border-b border-gray-800"
-                        type="radio"
-                        id="no"
-                        name="warTerrorism"
-                        value="no"
-                        checked={warAndTerrorism === "no"}
-                        onChange={(e) => setWarAndTerrorism(e.target.value)}
-                        style={{ color: warAndTerrorism === "no" ? "black" : "white" }}
+                        >
+                          Yes
+                        </label>
+                        <input
+                          className=" w-12 border-b border-gray-600"
+                          type="radio"
+                          id="yes"
+                          name="warTerrorism"
+                          value="yes"
+                          checked={warAndTerrorism === "yes"}
+                          onChange={(e) => setWarAndTerrorism(e.target.value)}
+                          style={{ color: warAndTerrorism === "yes" ? "black" : "white" }}
                         />
+                      </div>
+                      <div className="flex items-center">
+                        <label
+                          className="age font-bold text-gray-500 text-small"
+                          htmlFor="no"
+                        //style={{ color: warAndTerrorism === "no" ? "black" : "white" }}
+                        >
+                          No
+                        </label>
+                        <input
+                          className="w-12 border-b border-gray-800"
+                          type="radio"
+                          id="no"
+                          name="warTerrorism"
+                          value="no"
+                          checked={warAndTerrorism === "no"}
+                          onChange={(e) => setWarAndTerrorism(e.target.value)}
+                          style={{ color: warAndTerrorism === "no" ? "black" : "white" }}
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -663,11 +663,11 @@ console.log('exchangeRate', exchangeRate)
                 <br />
 
                 <div className="text-center">
-                <Link to='/benefits'>
-                <button className="rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider bg-secondary-300 text-white">
-                  Proceed to Benefits
-                </button></Link>
-              </div>
+                  <Link to='/benefits'>
+                    <button className="rounded-full py-2 px-3 uppercase text-xs font-bold cursor-pointer tracking-wider bg-secondary-300 text-white">
+                      Proceed to Benefits
+                    </button></Link>
+                </div>
 
               </div>
             </div>
